@@ -131,6 +131,12 @@ void Game::Initialize(HWND _window, int _width, int _height)
     pillow->SetScale(4.0f);
     m_GameObjects.push_back(pillow);
 
+    VBCube* test = new VBCube();
+    test->init(11, m_d3dDevice.Get());
+    test->SetPos(Vector3(200.0f, 0.0f, -100.0f));
+    test->SetScale(4.0f);
+    m_GameObjects.push_back(test);
+
     VBSnail* snail = new VBSnail(m_d3dDevice.Get(), "shell", 150, 0.98f, 0.09f * XM_PI, 0.4f, Color(1.0f, 0.0f, 0.0f, 1.0f), Color(0.0f, 0.0f, 1.0f, 1.0f));
     snail->SetPos(Vector3(-100.0f, 0.0f, 100.0f));
     snail->SetScale(2.0f);
@@ -150,11 +156,13 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(m_cam);
 
     //add Player
-    Player* pPlayer = new Player("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    Player* pPlayer = new Player("Dominus", m_d3dDevice.Get(), m_fxFactory);
+    pPlayer->SetScale(0.3);
+    //pPlayer->SetPitchYawRoll(0,90,0);
     m_GameObjects.push_back(pPlayer);
 
     //add a secondary camera
-    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 10000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 10.0f, 50.0f));
+    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(5.0f, 50.0f, 5.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs

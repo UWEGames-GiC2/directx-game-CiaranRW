@@ -4,5 +4,7 @@
     <ImageContentTask Include="logo_small.png" />
     <ImageContentTask Include="grass.jpg" />
     <ImageContentTask Include="white.jpg" />
+    <ImageContentTask Include="MuscleChassis_D.png" />
+    <ImageContentTask Include="internal_ground_ao_texture.jpeg" />
   </ItemGroup>
 </Project>

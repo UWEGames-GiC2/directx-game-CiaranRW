@@ -150,6 +150,10 @@
     <ImageContentTask Include="grass.jpg" />
     <ImageContentTask Include="white.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="internal_ground_ao_texture.jpeg" />
+    <ImageContentTask Include="MuscleChassis_D.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
