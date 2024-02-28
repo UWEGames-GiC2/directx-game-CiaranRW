@@ -49,13 +49,13 @@
     dcl_texcoord1 v1  // vin<4,5,6>
     dcl_texcoord2 v2  // vin<7,8>
 
-#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp3 r0.x, v1, c11
     dp3 r0.y, v1, c12
     dp3 r0.z, v1, c13
     nrm r1.xyz, r0  // ::worldNormal<0,1,2>
 
-#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r0.x, -c4, r1  // ::dotL<0>
 
 #line 36
@@ -67,15 +67,15 @@
     mov r2.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad oT0.xyz, r0, r2, c3  // ::VSEnvMapOneLight<0,1,2>
 
-#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 oPos.z, v0, c16  // ::VSEnvMapOneLight<15>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c7
     max r0.x, r0.x, c18.x
     min oT1.w, r0.x, c18.y  // ::VSEnvMapOneLight<7>
 
-#line 63 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 63 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 r0.x, v0, c8  // ::pos_ws<0>
     dp4 r0.y, v0, c9  // ::pos_ws<1>
     dp4 r0.z, v0, c10  // ::pos_ws<2>
@@ -96,10 +96,10 @@
     mad oPos.xy, r0.z, c0, r0  // ::VSEnvMapOneLight<13,14>
     mov oPos.w, r0.z  // ::VSEnvMapOneLight<16>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c2.w  // ::VSEnvMapOneLight<3>
 
-#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mov oT1.xyz, c1.x  // ::VSEnvMapOneLight<4,5,6>
 
 #line 210
@@ -153,10 +153,10 @@ ret
 
 const BYTE EnvironmentMapEffect_VSEnvMapOneLight[] =
 {
-     68,  88,  66,  67, 113, 224, 
-    189, 195,  75, 162, 114, 138, 
-    102, 217, 215, 153, 112, 178, 
-    189,   7,   1,   0,   0,   0, 
+     68,  88,  66,  67, 108, 153, 
+     38, 180, 139,  23,  59, 178, 
+     94, 220, 178, 220, 232,  35, 
+     37,  80,   1,   0,   0,   0, 
     140,  13,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      88,   8,   0,   0, 116,  12, 
@@ -195,7 +195,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapOneLight[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  69, 
     110, 118, 105, 114, 111, 110, 
@@ -210,7 +210,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapOneLight[] =
     105,  97, 114,  97, 110,  82, 
      87,  92,  68, 105, 114, 101, 
      99, 116,  88,  84,  75,  92, 
-    115, 114,  99,  92,  83, 104, 
+     83, 114,  99,  92,  83, 104, 
      97, 100, 101, 114, 115,  92, 
      76, 105, 103, 104, 116, 105, 
     110, 103,  46, 102, 120, 104, 
@@ -222,7 +222,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapOneLight[] =
      45,  67, 105,  97, 114,  97, 
     110,  82,  87,  92,  68, 105, 
     114, 101,  99, 116,  88,  84, 
-     75,  92, 115, 114,  99,  92, 
+     75,  92,  83, 114,  99,  92, 
      83, 104,  97, 100, 101, 114, 
     115,  92,  67, 111, 109, 109, 
     111, 110,  46, 102, 120, 104, 

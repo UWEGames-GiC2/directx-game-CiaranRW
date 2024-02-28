@@ -46,18 +46,18 @@
     dcl_texcoord2 v2  // vin<6,7>
     dcl_texcoord3 v3  // vin<8,9,10,11>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c4  // ::VSDualTextureVcNoFog<10>
 
-#line 83 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 83 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mul oT0, v3, c1  // ::VSDualTextureVcNoFog<0,1,2,3>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c2  // ::vout<0>
     dp4 r0.y, v0, c3  // ::vout<1>
     dp4 r0.z, v0, c5  // ::vout<3>
 
-#line 74 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 74 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSDualTextureVcNoFog<8,9>
     mov oPos.w, r0.z  // ::VSDualTextureVcNoFog<11>
 
@@ -89,10 +89,10 @@ ret
 
 const BYTE DualTextureEffect_VSDualTextureVcNoFog[] =
 {
-     68,  88,  66,  67,  10, 228, 
-    212,  32, 159,  19, 236, 246, 
-     31, 245, 251, 236, 178, 229, 
-     26, 151,   1,   0,   0,   0, 
+     68,  88,  66,  67, 204,  57, 
+    211,   2,  93, 207, 221, 204, 
+    149, 106,  85, 223,  50,  52, 
+      8, 157,   1,   0,   0,   0, 
      40,   7,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     192,   4,   0,   0,  16,   6, 
@@ -125,7 +125,7 @@ const BYTE DualTextureEffect_VSDualTextureVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 
@@ -137,7 +137,7 @@ const BYTE DualTextureEffect_VSDualTextureVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
     117,  97, 108,  84, 101, 120, 

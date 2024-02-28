@@ -46,7 +46,7 @@
     dcl_texcoord1 v1  // vin<4,5,6>
     dcl_texcoord2 v2  // vin<7,8>
 
-#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r0.x, v1, c18
     dp3 r0.y, v1, c19
     dp3 r0.z, v1, c20
@@ -117,24 +117,24 @@
 #line 60
     dp4 oPos.z, v0, c23  // ::VSBasicVertexLightingTx<12>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c14
     max r0.x, r0.x, c25.x
     min oT1.w, r0.x, c25.y  // ::VSBasicVertexLightingTx<7>
 
-#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp4 r0.x, v0, c21  // ::vout<0>
     dp4 r0.y, v0, c22  // ::vout<1>
     dp4 r0.z, v0, c24  // ::vout<3>
 
-#line 202 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 202 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSBasicVertexLightingTx<10,11>
     mov oPos.w, r0.z  // ::VSBasicVertexLightingTx<13>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c1.w  // ::VSBasicVertexLightingTx<3>
 
-#line 209 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 209 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mov oT2.xy, v2  // ::VSBasicVertexLightingTx<8,9>
 
 // approximately 63 instruction slots used
@@ -208,10 +208,10 @@ ret
 
 const BYTE BasicEffect_VSBasicVertexLightingTx[] =
 {
-     68,  88,  66,  67, 155, 187, 
-    126,   9,  42, 169, 250,  23, 
-    241,  86, 100,  15,  77, 224, 
-    187, 197,   1,   0,   0,   0, 
+     68,  88,  66,  67, 247,   4, 
+    128, 116, 220, 218,  53, 170, 
+    213, 202,  95,  87,  26, 211, 
+    198, 242,   1,   0,   0,   0, 
      96,  19,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      72,  11,   0,   0,  96,  18, 
@@ -246,7 +246,7 @@ const BYTE BasicEffect_VSBasicVertexLightingTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  76, 
     105, 103, 104, 116, 105, 110, 
@@ -259,7 +259,7 @@ const BYTE BasicEffect_VSBasicVertexLightingTx[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 
@@ -271,7 +271,7 @@ const BYTE BasicEffect_VSBasicVertexLightingTx[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  66,  97, 115, 105,  99, 
      69, 102, 102, 101,  99, 116, 

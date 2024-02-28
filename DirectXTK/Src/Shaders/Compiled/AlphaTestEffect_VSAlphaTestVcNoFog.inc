@@ -43,18 +43,18 @@
     dcl_texcoord1 v1  // vin<4,5>
     dcl_texcoord2 v2  // vin<6,7,8,9>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c4  // ::VSAlphaTestVcNoFog<8>
 
-#line 77 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\AlphaTestEffect.fx"
+#line 77 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
     mul oT0, v2, c1  // ::VSAlphaTestVcNoFog<0,1,2,3>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c2  // ::vout<0>
     dp4 r0.y, v0, c3  // ::vout<1>
     dp4 r0.z, v0, c5  // ::vout<3>
 
-#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\AlphaTestEffect.fx"
+#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSAlphaTestVcNoFog<6,7>
     mov oPos.w, r0.z  // ::VSAlphaTestVcNoFog<9>
 
@@ -82,10 +82,10 @@ ret
 
 const BYTE AlphaTestEffect_VSAlphaTestVcNoFog[] =
 {
-     68,  88,  66,  67, 224,  42, 
-     21, 125, 146, 127,  97,  83, 
-    143, 224, 193, 236, 239, 119, 
-    159, 149,   1,   0,   0,   0, 
+     68,  88,  66,  67, 147,  92, 
+    179, 168,  81, 244,  58, 140, 
+     42,  45,  17, 173, 217,  63, 
+    108, 245,   1,   0,   0,   0, 
     104,   6,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      92,   4,   0,   0, 128,   5, 
@@ -118,7 +118,7 @@ const BYTE AlphaTestEffect_VSAlphaTestVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 
@@ -130,7 +130,7 @@ const BYTE AlphaTestEffect_VSAlphaTestVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  65, 
     108, 112, 104,  97,  84, 101, 

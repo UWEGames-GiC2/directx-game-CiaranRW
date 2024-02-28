@@ -46,7 +46,7 @@
     dcl_2d s0
     dcl_cube s1
 
-#line 92 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 92 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     nrm r0.xyz, t2  // ::worldNormal<0,1,2>
     add r1.xyz, -t1, c10
     nrm r2.xyz, r1  // ::eyeVector<0,1,2>
@@ -62,7 +62,7 @@
 #line 100
     texld r1, r1, s1
 
-#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r4.x, -c4, r0  // ::dotL<0>
     dp3 r4.y, -c5, r0  // ::dotL<1>
     dp3 r4.z, -c6, r0  // ::dotL<2>
@@ -78,7 +78,7 @@
     mov r5.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad r4.xyz, r4, r5, c3  // ::result<0,1,2>
 
-#line 89 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 89 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mul r3, r3, t3  // ::color<0,1,2,3>
 
 #line 96
@@ -102,7 +102,7 @@
 #line 109
     mad r0.xyz, c0, r0.w, r0  // ::color<0,1,2>
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, c11, r3.w, -r0
     mad r3.xyz, t1.w, r1, r0  // ApplyFog::color<0,1,2>
     mov oC0, r3  // ::PSEnvMapPixelLightingFresnel<0,1,2,3>
@@ -164,10 +164,10 @@ ret
 
 const BYTE EnvironmentMapEffect_PSEnvMapPixelLightingFresnel[] =
 {
-     68,  88,  66,  67,  22, 167, 
-     26,  20,  76,  38, 221,  19, 
-     72, 152, 148,  41, 198, 241, 
-     65, 225,   1,   0,   0,   0, 
+     68,  88,  66,  67,  87,  16, 
+    192,  31,  79,  84, 162, 233, 
+     66,  66, 209,  63, 210,  39, 
+     36, 150,   1,   0,   0,   0, 
     148,  15,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     116,   9,   0,   0, 224,  14, 
@@ -199,7 +199,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapPixelLightingFresnel[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  69, 110, 118, 
     105, 114, 111, 110, 109, 101, 
@@ -213,7 +213,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapPixelLightingFresnel[] =
     109, 101,  45,  67, 105,  97, 
     114,  97, 110,  82,  87,  92, 
      68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92, 115, 114, 
+     88,  84,  75,  92,  83, 114, 
      99,  92,  83, 104,  97, 100, 
     101, 114, 115,  92,  76, 105, 
     103, 104, 116, 105, 110, 103, 
@@ -226,7 +226,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapPixelLightingFresnel[] =
     105,  97, 114,  97, 110,  82, 
      87,  92,  68, 105, 114, 101, 
      99, 116,  88,  84,  75,  92, 
-    115, 114,  99,  92,  83, 104, 
+     83, 114,  99,  92,  83, 104, 
      97, 100, 101, 114, 115,  92, 
      67, 111, 109, 109, 111, 110, 
      46, 102, 120, 104,   0, 171, 

@@ -34,11 +34,11 @@
     dcl t2.xy  // pin<8,9>
     dcl_2d s0
 
-#line 350 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 350 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     texld r0, t2, s0
     mul r0, r0, t0  // ::color<0,1,2,3>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r0.xyz, t1, r0.w, r0  // AddSpecular::color<0,1,2>
     mov oC0, r0  // ::PSSkinnedVertexLightingNoFog<0,1,2,3>
 
@@ -61,10 +61,10 @@ ret
 
 const BYTE SkinnedEffect_PSSkinnedVertexLightingNoFog[] =
 {
-     68,  88,  66,  67, 170,  75, 
-    218, 253, 156, 204,   1,  39, 
-     71,  44,  24, 100, 158, 110, 
-     53, 113,   1,   0,   0,   0, 
+     68,  88,  66,  67,  44,  89, 
+    133, 221, 195, 217, 150, 124, 
+     47, 145, 206, 194, 146, 210, 
+    227,  74,   1,   0,   0,   0, 
     208,   4,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      84,   3,   0,   0,  52,   4, 
@@ -93,7 +93,7 @@ const BYTE SkinnedEffect_PSSkinnedVertexLightingNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     107, 105, 110, 110, 101, 100, 
@@ -106,7 +106,7 @@ const BYTE SkinnedEffect_PSSkinnedVertexLightingNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 

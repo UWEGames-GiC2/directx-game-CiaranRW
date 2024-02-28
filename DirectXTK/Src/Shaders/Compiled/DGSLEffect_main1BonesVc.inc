@@ -61,7 +61,7 @@
     dcl_texcoord5 v5  // vertex<17,18,19,20>
     dcl_texcoord6 v6  // vertex<21,22,23,24>
 
-#line 108 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLEffect.fx"
+#line 108 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLEffect.fx"
     mul r0.x, v5.x, c228.x
     mova a0.x, r0.x
     mul r0, v6.x, c0[a0.x]  // ::skinning<0,3,6,9>
@@ -182,10 +182,10 @@ ret
 
 const BYTE DGSLEffect_main1BonesVc[] =
 {
-     68,  88,  66,  67,  34,  92, 
-    199, 201, 250, 127, 103,  41, 
-    114, 117,  59,  84, 203,  63, 
-    127,  53,   1,   0,   0,   0, 
+     68,  88,  66,  67, 248, 137, 
+      5,  94,  55,   7,  11, 166, 
+     64, 212,  46, 148, 104, 241, 
+    162,  94,   1,   0,   0,   0, 
     204,  15,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      20,   9,   0,   0, 228,  13, 
@@ -226,7 +226,7 @@ const BYTE DGSLEffect_main1BonesVc[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
      71,  83,  76,  69, 102, 102, 

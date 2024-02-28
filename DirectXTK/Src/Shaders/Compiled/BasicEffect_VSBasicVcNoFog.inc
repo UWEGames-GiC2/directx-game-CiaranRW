@@ -40,18 +40,18 @@
     dcl_texcoord v0  // vin<0,1,2,3>
     dcl_texcoord1 v1  // vin<4,5,6,7>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c4  // ::VSBasicVcNoFog<6>
 
-#line 85 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 85 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mul oT0, v1, c1  // ::VSBasicVcNoFog<0,1,2,3>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c2  // ::vout<0>
     dp4 r0.y, v0, c3  // ::vout<1>
     dp4 r0.z, v0, c5  // ::vout<3>
 
-#line 78 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 78 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSBasicVcNoFog<4,5>
     mov oPos.w, r0.z  // ::VSBasicVcNoFog<7>
 
@@ -73,10 +73,10 @@ ret
 
 const BYTE BasicEffect_VSBasicVcNoFog[] =
 {
-     68,  88,  66,  67, 151,  32, 
-    230,  40,  79,  46, 224, 221, 
-     67,  60, 128, 178, 153, 206, 
-    241, 157,   1,   0,   0,   0, 
+     68,  88,  66,  67,  26,  62, 
+    165,  99, 201,   5,  32,  39, 
+     63,  52, 125,  41,  52, 106, 
+    211, 102,   1,   0,   0,   0, 
     136,   5,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     232,   3,   0,   0, 224,   4, 
@@ -109,7 +109,7 @@ const BYTE BasicEffect_VSBasicVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 
@@ -121,7 +121,7 @@ const BYTE BasicEffect_VSBasicVcNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  66, 
      97, 115, 105,  99,  69, 102, 

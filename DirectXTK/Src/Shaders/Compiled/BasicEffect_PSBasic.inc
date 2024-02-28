@@ -31,7 +31,7 @@
     dcl t0  // pin<0,1,2,3>
     dcl t1  // pin<4,5,6,7>
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r0.xyz, c0, t0.w, -t0
     mov r1.xyz, t0  // pin<0,1,2>
     mad r0.xyz, t1.w, r0, r1  // ApplyFog::color<0,1,2>
@@ -54,10 +54,10 @@ ret
 
 const BYTE BasicEffect_PSBasic[] =
 {
-     68,  88,  66,  67, 173, 228, 
-    186, 202, 142, 134, 170, 115, 
-    249, 170, 132, 248,   6, 250, 
-    162, 227,   1,   0,   0,   0, 
+     68,  88,  66,  67, 182,  67, 
+    164, 185, 143, 156, 173, 117, 
+    245,  85,  29, 193, 163, 136, 
+    107,  19,   1,   0,   0,   0, 
     200,   3,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     152,   2,   0,   0,  76,   3, 
@@ -88,7 +88,7 @@ const BYTE BasicEffect_PSBasic[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 

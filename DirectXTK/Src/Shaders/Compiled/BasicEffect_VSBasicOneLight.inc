@@ -46,7 +46,7 @@
     dcl_texcoord v0  // vin<0,1,2,3>
     dcl_texcoord1 v1  // vin<4,5,6>
 
-#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r0.x, v1, c12
     dp3 r0.y, v1, c13
     dp3 r0.z, v1, c14
@@ -91,21 +91,21 @@
 #line 60
     dp4 oPos.z, v0, c17  // ::VSBasicOneLight<10>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c8
     max r0.x, r0.x, c19.x
     min oT1.w, r0.x, c19.y  // ::VSBasicOneLight<7>
 
-#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp4 r0.x, v0, c15  // ::vout<0>
     dp4 r0.y, v0, c16  // ::vout<1>
     dp4 r0.z, v0, c18  // ::vout<3>
 
-#line 260 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 260 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSBasicOneLight<8,9>
     mov oPos.w, r0.z  // ::VSBasicOneLight<11>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c1.w  // ::VSBasicOneLight<3>
 
 // approximately 42 instruction slots used
@@ -160,10 +160,10 @@ ret
 
 const BYTE BasicEffect_VSBasicOneLight[] =
 {
-     68,  88,  66,  67, 217,  90, 
-     53, 104, 168, 187, 156,  40, 
-    162,  81,  22,  40, 179, 121, 
-    114,  91,   1,   0,   0,   0, 
+     68,  88,  66,  67, 215, 250, 
+     59,  15, 147, 146,   0,  61, 
+    203,  40,  71,   5, 142,  48, 
+    121, 252,   1,   0,   0,   0, 
     136,  14,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      16,   9,   0,   0, 200,  13, 
@@ -204,7 +204,7 @@ const BYTE BasicEffect_VSBasicOneLight[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  76, 
     105, 103, 104, 116, 105, 110, 
@@ -217,7 +217,7 @@ const BYTE BasicEffect_VSBasicOneLight[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 
@@ -229,7 +229,7 @@ const BYTE BasicEffect_VSBasicOneLight[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  66,  97, 115, 105,  99, 
      69, 102, 102, 101,  99, 116, 

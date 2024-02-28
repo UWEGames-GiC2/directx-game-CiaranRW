@@ -46,7 +46,7 @@
     dcl_2d s0
     dcl_2d s1
 
-#line 121 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 121 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     add r0.xyz, -t1, c10
     nrm r1.xyz, r0  // ::eyeVector<0,1,2>
     nrm r0.xyz, t2  // ::worldNormal<0,1,2>
@@ -70,7 +70,7 @@
 #line 119
     texld r2, t0, s0
 
-#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r3.x, -c4, r0  // ::dotL<0>
     dp3 r3.y, -c5, r0  // ::dotL<1>
     dp3 r3.z, -c6, r0  // ::dotL<2>
@@ -86,7 +86,7 @@
     mov r3.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad r0.xyz, r0, r3, c3  // ::result<0,1,2>
 
-#line 119 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 119 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mul r2, r2, t3  // ::color<0,1,2,3>
 
 #line 126
@@ -158,10 +158,10 @@ ret
 
 const BYTE EnvironmentMapEffect_PSEnvMapSpherePixelLightingNoFog[] =
 {
-     68,  88,  66,  67, 218,  32, 
-    197,  37, 165,  61, 125, 234, 
-    119, 171, 184, 128, 115,  14, 
-    163, 165,   1,   0,   0,   0, 
+     68,  88,  66,  67, 139, 147, 
+     46, 225, 156,  40,  93, 133, 
+     68,  31,  21, 198, 199,  58, 
+    209, 199,   1,   0,   0,   0, 
     248,  14,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      20,   9,   0,   0,  68,  14, 
@@ -193,7 +193,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapSpherePixelLightingNoFog[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  69, 110, 118, 
     105, 114, 111, 110, 109, 101, 
@@ -207,7 +207,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapSpherePixelLightingNoFog[] =
     109, 101,  45,  67, 105,  97, 
     114,  97, 110,  82,  87,  92, 
      68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92, 115, 114, 
+     88,  84,  75,  92,  83, 114, 
      99,  92,  83, 104,  97, 100, 
     101, 114, 115,  92,  76, 105, 
     103, 104, 116, 105, 110, 103, 

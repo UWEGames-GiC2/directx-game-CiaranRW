@@ -47,16 +47,16 @@
     dcl_texcoord1 v1  // vin<4,5,6>
     dcl_texcoord2 v2  // vin<7,8>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Utilities.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Utilities.fxh"
     mad r0.xyz, v1, c22.x, c22.y  // ::BiasX2<0,1,2>
 
-#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp3 r1.x, r0, c15
     dp3 r1.y, r0, c16
     dp3 r1.z, r0, c17
     nrm r0.xyz, r1  // ::worldNormal<0,1,2>
 
-#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r1.x, -c4, r0  // ::dotL<0>
     dp3 r1.y, -c5, r0  // ::dotL<1>
     dp3 r1.z, -c6, r0  // ::dotL<2>
@@ -72,15 +72,15 @@
     mov r2.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad oT0.xyz, r1, r2, c3  // ::VSEnvMapBn<0,1,2>
 
-#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 69 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 oPos.z, v0, c20  // ::VSEnvMapBn<15>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.w, v0, c11
     max r0.w, r0.w, c22.z
     min oT1.w, r0.w, c22.w  // ::VSEnvMapBn<7>
 
-#line 63 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 63 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 r1.x, v0, c12  // ::pos_ws<0>
     dp4 r1.y, v0, c13  // ::pos_ws<1>
     dp4 r1.z, v0, c14  // ::pos_ws<2>
@@ -101,10 +101,10 @@
     mad oPos.xy, r0.z, c0, r0  // ::VSEnvMapBn<13,14>
     mov oPos.w, r0.z  // ::VSEnvMapBn<16>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c2.w  // ::VSEnvMapBn<3>
 
-#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mov oT1.xyz, c1.x  // ::VSEnvMapBn<4,5,6>
 
 #line 189
@@ -163,10 +163,10 @@ ret
 
 const BYTE EnvironmentMapEffect_VSEnvMapBn[] =
 {
-     68,  88,  66,  67,  51, 132, 
-     11, 226, 166, 162,  86, 209, 
-    194,  43, 213,  58, 220,  46, 
-     83,  89,   1,   0,   0,   0, 
+     68,  88,  66,  67,  75,  80, 
+    183, 139,  46,  96,  35, 239, 
+     51,  39, 104,  29,  36, 125, 
+     84, 245,   1,   0,   0,   0, 
     124,  15,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      92,   9,   0,   0, 100,  14, 
@@ -201,7 +201,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapBn[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  85, 
     116, 105, 108, 105, 116, 105, 
@@ -214,7 +214,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapBn[] =
      45,  67, 105,  97, 114,  97, 
     110,  82,  87,  92,  68, 105, 
     114, 101,  99, 116,  88,  84, 
-     75,  92, 115, 114,  99,  92, 
+     75,  92,  83, 114,  99,  92, 
      83, 104,  97, 100, 101, 114, 
     115,  92,  69, 110, 118, 105, 
     114, 111, 110, 109, 101, 110, 
@@ -228,7 +228,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapBn[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  76, 105, 103, 
     104, 116, 105, 110, 103,  46, 
@@ -240,7 +240,7 @@ const BYTE EnvironmentMapEffect_VSEnvMapBn[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 

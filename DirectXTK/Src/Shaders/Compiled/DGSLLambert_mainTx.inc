@@ -48,7 +48,7 @@
     dcl t2.xyz  // pixel<10,11,12>
     dcl_2d s0
 
-#line 145 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLLambert.hlsl"
+#line 145 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLLambert.hlsl"
     texld r0, t1, s0
 
 #line 135
@@ -121,10 +121,10 @@ ret
 
 const BYTE DGSLLambert_mainTx[] =
 {
-     68,  88,  66,  67, 101,  45, 
-    245,  66, 112, 252, 159,  20, 
-    204,  64,  47, 166, 204,  99, 
-    138, 141,   1,   0,   0,   0, 
+     68,  88,  66,  67,  66, 204, 
+    248, 225, 149,  27, 105,  57, 
+      8, 119,  23, 163, 134,  45, 
+     21, 217,   1,   0,   0,   0, 
      52,  10,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      48,   6,   0,   0,  20,   9, 
@@ -159,7 +159,7 @@ const BYTE DGSLLambert_mainTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
      71,  83,  76,  76,  97, 109, 

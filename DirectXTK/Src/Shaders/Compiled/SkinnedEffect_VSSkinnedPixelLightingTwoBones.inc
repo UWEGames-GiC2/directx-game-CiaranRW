@@ -49,7 +49,7 @@
     dcl_texcoord3 v3  // vin<9,10,11,12>
     dcl_texcoord4 v4  // vin<13,14,15,16>
 
-#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Skinning.fxh"
+#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Skinning.fxh"
     mul r0.xy, v3, c243.x
     mova a0.xy, r0.yxzw
     mul r0, v4.y, c26[a0.x]
@@ -71,7 +71,7 @@
     dp4 r1.z, v0, r3  // Skin::vin<2>
     dp3 r0.z, v1, r3  // ::Skin<2>
 
-#line 82 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 82 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov r1.w, v0.w
     dp4 oPos.z, r1, c24  // ::VSSkinnedPixelLightingTwoBones<15>
     dp4 oT1.x, r1, c15  // ::VSSkinnedPixelLightingTwoBones<2>
@@ -84,17 +84,17 @@
     rsq r0.x, r0.x
     mul oT2.xyz, r0.x, r2  // ::VSSkinnedPixelLightingTwoBones<6,7,8>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, r1, c14
     max r0.x, r0.x, c243.y
     min oT1.w, r0.x, c243.z  // ::VSSkinnedPixelLightingTwoBones<5>
 
-#line 82 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 82 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp4 r0.x, r1, c22  // ::vout<0>
     dp4 r0.y, r1, c23  // ::vout<1>
     dp4 r0.z, r1, c25  // ::vout<3>
 
-#line 268 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 268 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mad oPos.xy, r0.z, c242, r0  // ::VSSkinnedPixelLightingTwoBones<13,14>
     mov oPos.w, r0.z  // ::VSSkinnedPixelLightingTwoBones<16>
 
@@ -156,10 +156,10 @@ ret
 
 const BYTE SkinnedEffect_VSSkinnedPixelLightingTwoBones[] =
 {
-     68,  88,  66,  67,  94,  68, 
-    204,  99, 158,  82, 188, 181, 
-    113, 129, 112, 221, 144,  49, 
-     37, 159,   1,   0,   0,   0, 
+     68,  88,  66,  67, 190,   8, 
+     12, 253,  89, 147,  90, 137, 
+    108, 232, 142,  89,  73, 128, 
+    156, 161,   1,   0,   0,   0, 
     128,  15,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     140,   9,   0,   0,  28,  14, 
@@ -190,7 +190,7 @@ const BYTE SkinnedEffect_VSSkinnedPixelLightingTwoBones[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     107, 105, 110, 110, 105, 110, 
@@ -203,7 +203,7 @@ const BYTE SkinnedEffect_VSSkinnedPixelLightingTwoBones[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  76, 105, 103, 104, 116, 
     105, 110, 103,  46, 102, 120, 
@@ -215,7 +215,7 @@ const BYTE SkinnedEffect_VSSkinnedPixelLightingTwoBones[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  67, 111, 109, 
     109, 111, 110,  46, 102, 120, 
@@ -227,7 +227,7 @@ const BYTE SkinnedEffect_VSSkinnedPixelLightingTwoBones[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  83, 107, 105, 
     110, 110, 101, 100,  69, 102, 

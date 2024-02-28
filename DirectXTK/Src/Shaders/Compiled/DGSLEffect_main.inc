@@ -54,7 +54,7 @@
     dcl_texcoord2 v2  // vertex<7,8,9,10>
     dcl_texcoord3 v3  // vertex<11,12>
 
-#line 125 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLEffect.fx"
+#line 125 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLEffect.fx"
     dp4 oPos.z, v0, c7  // ::main<2>
     mad r0.xyz, v3.xyxw, c12.xxyw, c12.yyxw
     dp3 oT1.x, r0, c9.xyww  // ::main<8>
@@ -132,10 +132,10 @@ ret
 
 const BYTE DGSLEffect_main[] =
 {
-     68,  88,  66,  67, 175, 159, 
-    206, 107, 103, 146, 126,  50, 
-      2, 160,  41, 239, 218,   6, 
-    149, 234,   1,   0,   0,   0, 
+     68,  88,  66,  67, 142, 130, 
+    205, 117, 177, 158,  64, 102, 
+    234,  77, 217,  58,  70, 240, 
+    113,  14,   1,   0,   0,   0, 
     124,  10,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      12,   6,   0,   0, 252,   8, 
@@ -174,7 +174,7 @@ const BYTE DGSLEffect_main[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
      71,  83,  76,  69, 102, 102, 

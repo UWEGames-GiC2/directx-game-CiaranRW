@@ -32,7 +32,7 @@
     dcl t1.xy  // pin<4,5>
     dcl_2d s0
 
-#line 521 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 521 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     texld r0, t1, s0
     mul r0, r0, t0  // ::PSBasicTxNoFog<0,1,2,3>
     mov oC0, r0  // ::PSBasicTxNoFog<0,1,2,3>
@@ -53,10 +53,10 @@ ret
 
 const BYTE BasicEffect_PSBasicTxNoFog[] =
 {
-     68,  88,  66,  67,  10, 108, 
-    236,  74, 234, 122, 164, 194, 
-    204,   7, 138, 184, 146, 178, 
-    160,  75,   1,   0,   0,   0, 
+     68,  88,  66,  67,  24, 125, 
+     96, 116, 232,  92,  48, 164, 
+     78, 129, 217,  58, 167, 121, 
+    128, 243,   1,   0,   0,   0, 
     128,   3,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      96,   2,   0,   0, 252,   2, 
@@ -85,7 +85,7 @@ const BYTE BasicEffect_PSBasicTxNoFog[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  66, 
      97, 115, 105,  99,  69, 102, 

@@ -38,7 +38,7 @@
     dcl_2d s0
     dcl_cube s1
 
-#line 293 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 293 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     texld r0, t3, s1
     texld r1, t2, s0
     mul r1, r1, t0  // ::color<0,1,2,3>
@@ -72,10 +72,10 @@ ret
 
 const BYTE EnvironmentMapEffect_PSEnvMapNoFog[] =
 {
-     68,  88,  66,  67, 138, 105, 
-    243, 229, 180, 135, 138, 170, 
-    190,  50, 198, 124, 125, 248, 
-    188,  88,   1,   0,   0,   0, 
+     68,  88,  66,  67,  15, 142, 
+    193,  21, 205, 121, 187, 242, 
+     57,  80, 255, 158,  96, 207, 
+    211,  36,   1,   0,   0,   0, 
     120,   5,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     112,   3,   0,   0, 196,   4, 
@@ -105,7 +105,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapNoFog[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  69, 110, 118, 
     105, 114, 111, 110, 109, 101, 

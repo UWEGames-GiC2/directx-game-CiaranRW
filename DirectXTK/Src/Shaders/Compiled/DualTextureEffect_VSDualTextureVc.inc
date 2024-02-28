@@ -48,7 +48,7 @@
     dcl_texcoord2 v2  // vin<6,7>
     dcl_texcoord3 v3  // vin<8,9,10,11>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c5  // ::VSDualTextureVc<14>
 
 #line 11
@@ -56,22 +56,22 @@
     max r0.x, r0.x, c7.x
     min oT1.w, r0.x, c7.y  // ::VSDualTextureVc<7>
 
-#line 67 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 67 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mul oT0, v3, c1  // ::VSDualTextureVc<0,1,2,3>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c3  // ::vout<0>
     dp4 r0.y, v0, c4  // ::vout<1>
     dp4 r0.z, v0, c6  // ::vout<3>
 
-#line 58 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 58 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSDualTextureVc<12,13>
     mov oPos.w, r0.z  // ::VSDualTextureVc<15>
 
-#line 42 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 42 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mov oT1.xyz, c7.x  // ::VSDualTextureVc<4,5,6>
 
-#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 65 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mov oT2.xy, v1  // ::VSDualTextureVc<8,9>
     mov oT2.zw, v2.xyyx  // ::VSDualTextureVc<11,10>
 
@@ -102,10 +102,10 @@ ret
 
 const BYTE DualTextureEffect_VSDualTextureVc[] =
 {
-     68,  88,  66,  67,  11, 238, 
-    133, 235, 115, 206, 179,  26, 
-     47,  53, 109,  28, 134, 211, 
-    144, 101,   1,   0,   0,   0, 
+     68,  88,  66,  67,  12, 176, 
+     86, 254, 229, 201,  32, 214, 
+     45, 234, 221, 117,  43,  10, 
+     13,  16,   1,   0,   0,   0, 
      28,   8,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      80,   5,   0,   0, 236,   6, 
@@ -138,7 +138,7 @@ const BYTE DualTextureEffect_VSDualTextureVc[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 
@@ -150,7 +150,7 @@ const BYTE DualTextureEffect_VSDualTextureVc[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
     117,  97, 108,  84, 101, 120, 

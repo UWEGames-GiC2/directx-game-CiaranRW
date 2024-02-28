@@ -45,7 +45,7 @@
     dcl_2d s0
     dcl_2d s1
 
-#line 93 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DualTextureEffect.fx"
+#line 93 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mov r0.xy, t2.wzyx
     texld r0, r0, s1  // ::overlay<0,1,2,3>
     texld r1, t2, s0  // ::color<0,1,2,3>
@@ -55,7 +55,7 @@
     mul r1, r1, c1
     mul r0, r0, r1  // ::color<0,1,2,3>
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, c0, r0.w, -r0
     mad r0.xyz, t1.w, r1, r0  // ApplyFog::color<0,1,2>
     mov oC0, r0  // ::PSDualTexture<0,1,2,3>
@@ -87,10 +87,10 @@ ret
 
 const BYTE DualTextureEffect_PSDualTexture[] =
 {
-     68,  88,  66,  67, 187,  69, 
-    159,  79, 134,  55,  68, 185, 
-    132,  40, 167, 162,  90, 102, 
-    245,  38,   1,   0,   0,   0, 
+     68,  88,  66,  67,  46,  53, 
+    138, 244,   0,  35,  77,  52, 
+    233,  78, 202, 164, 194, 110, 
+    181, 159,   1,   0,   0,   0, 
     168,   6,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      72,   4,   0,   0, 244,   5, 
@@ -122,7 +122,7 @@ const BYTE DualTextureEffect_PSDualTexture[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  68, 117,  97, 
     108,  84, 101, 120, 116, 117, 
@@ -136,7 +136,7 @@ const BYTE DualTextureEffect_PSDualTexture[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 

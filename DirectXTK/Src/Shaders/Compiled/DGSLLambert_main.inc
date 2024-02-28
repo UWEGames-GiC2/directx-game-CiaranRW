@@ -39,7 +39,7 @@
     dcl t0  // pixel<4,5,6,7>
     dcl t2.xyz  // pixel<10,11,12>
 
-#line 95 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLLambert.hlsl"
+#line 95 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLLambert.hlsl"
     nrm r0.xyz, t2  // ::worldNormal<0,1,2>
 
 #line 78
@@ -103,10 +103,10 @@ ret
 
 const BYTE DGSLLambert_main[] =
 {
-     68,  88,  66,  67, 130,  75, 
-    192,  16, 176,  61,  34, 169, 
-    140, 210, 184,  87, 217,  19, 
-     60, 206,   1,   0,   0,   0, 
+     68,  88,  66,  67, 232, 122, 
+    113,  72,  35,  58, 160, 179, 
+    186, 225, 137, 223, 202, 128, 
+     36, 163,   1,   0,   0,   0, 
       8,   9,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     116,   5,   0,   0, 232,   7, 
@@ -141,7 +141,7 @@ const BYTE DGSLLambert_main[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  68,  71,  83,  76,  76, 
      97, 109,  98, 101, 114, 116, 

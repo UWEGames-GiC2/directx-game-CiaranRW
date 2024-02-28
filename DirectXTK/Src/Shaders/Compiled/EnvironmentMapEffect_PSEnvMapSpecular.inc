@@ -46,7 +46,7 @@
     dcl_2d s0
     dcl_cube s1
 
-#line 305 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\EnvironmentMapEffect.fx"
+#line 305 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     texld r0, t3, s1
     texld r1, t2, s0
     mul r1, r1, t0  // ::color<0,1,2,3>
@@ -57,7 +57,7 @@
     mad r0.xyz, t1, r0, r1  // ::color<0,1,2>
     mad r0.xyz, c0, r0.w, r0  // ::color<0,1,2>
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r2.xyz, c1, r1.w, -r0
     mad r1.xyz, t1.w, r2, r0  // ApplyFog::color<0,1,2>
     mov oC0, r1  // ::PSEnvMapSpecular<0,1,2,3>
@@ -91,10 +91,10 @@ ret
 
 const BYTE EnvironmentMapEffect_PSEnvMapSpecular[] =
 {
-     68,  88,  66,  67,  20,  58, 
-    114, 214,  35,  94, 204, 191, 
-     88, 237, 234, 166, 142, 202, 
-     66, 235,   1,   0,   0,   0, 
+     68,  88,  66,  67, 225, 157, 
+    231,  12,  12, 110,  71,  71, 
+    131, 238, 225, 192, 183, 149, 
+    217,  60,   1,   0,   0,   0, 
      76,   7,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     160,   4,   0,   0, 152,   6, 
@@ -128,7 +128,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapSpecular[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  69, 110, 118, 
     105, 114, 111, 110, 109, 101, 
@@ -142,7 +142,7 @@ const BYTE EnvironmentMapEffect_PSEnvMapSpecular[] =
     109, 101,  45,  67, 105,  97, 
     114,  97, 110,  82,  87,  92, 
      68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92, 115, 114, 
+     88,  84,  75,  92,  83, 114, 
      99,  92,  83, 104,  97, 100, 
     101, 114, 115,  92,  67, 111, 
     109, 109, 111, 110,  46, 102, 

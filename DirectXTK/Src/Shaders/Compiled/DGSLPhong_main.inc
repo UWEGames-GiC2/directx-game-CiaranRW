@@ -44,7 +44,7 @@
     dcl t2.xyz  // pixel<10,11,12>
     dcl t4.xyz  // pixel<16,17,18>
 
-#line 100 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLPhong.hlsl"
+#line 100 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLPhong.hlsl"
     mov r0.xyz, c1  // MaterialVars::MaterialSpecular<0,1,2>
     mul r1.xyz, r0, c4
     mul r2.xyz, r0, c5
@@ -179,10 +179,10 @@ ret
 
 const BYTE DGSLPhong_main[] =
 {
-     68,  88,  66,  67,  67,  56, 
-    164, 133,  13,  47,  44,  16, 
-     61, 217, 197, 159, 109,  66, 
-    138, 145,   1,   0,   0,   0, 
+     68,  88,  66,  67, 136,  84, 
+     46, 252, 207, 210, 239,  10, 
+    179, 204, 251,  63, 127, 253, 
+     36, 246,   1,   0,   0,   0, 
       8,  17,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     180,   9,   0,   0, 232,  15, 
@@ -223,7 +223,7 @@ const BYTE DGSLPhong_main[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  68,  71,  83,  76,  80, 
     104, 111, 110, 103,  46, 104, 

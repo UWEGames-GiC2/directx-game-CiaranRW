@@ -48,7 +48,7 @@
     dcl_texcoord3 v3  // vin<9,10,11,12>
     dcl_texcoord4 v4  // vin<13,14,15,16>
 
-#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Skinning.fxh"
+#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Skinning.fxh"
     mul r0, v3, c243.z
     mova a0, r0.yxzw
     mul r1, v4.y, c26[a0.x]
@@ -56,10 +56,10 @@
     mad r0, c26[a0.z], v4.z, r1  // ::skinning<0,3,6,9>
     mad r0, c26[a0.w], v4.w, r0  // ::skinning<0,3,6,9>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Utilities.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Utilities.fxh"
     mad r1.xyz, v1, c243.x, c243.y  // ::BiasX2<0,1,2>
 
-#line 19 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Skinning.fxh"
+#line 19 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Skinning.fxh"
     dp3 r2.x, r1, r0  // ::Skin<0>
     dp4 r0.x, v0, r0  // Skin::vin<0>
 
@@ -79,7 +79,7 @@
     dp3 r2.z, r1, r4  // ::Skin<2>
     dp4 r0.z, v0, r4  // Skin::vin<2>
 
-#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r1.x, r2, c19
     dp3 r1.y, r2, c20
     dp3 r1.z, r2, c21
@@ -151,24 +151,24 @@
 #line 60
     dp4 oPos.z, r0, c24  // ::VSSkinnedVertexLightingFourBonesBn<12>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r1.x, r0, c14
     max r1.x, r1.x, c243.w
     min oT1.w, r1.x, -c243.y  // ::VSSkinnedVertexLightingFourBonesBn<7>
 
-#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp4 r1.x, r0, c22  // ::vout<0>
     dp4 r1.y, r0, c23  // ::vout<1>
     dp4 r0.x, r0, c25  // ::vout<3>
 
-#line 121 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 121 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mad oPos.xy, r0.x, c242, r1  // ::VSSkinnedVertexLightingFourBonesBn<10,11>
     mov oPos.w, r0.x  // ::VSSkinnedVertexLightingFourBonesBn<13>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c0.w  // ::VSSkinnedVertexLightingFourBonesBn<3>
 
-#line 127 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 127 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mov oT2.xy, v2  // ::VSSkinnedVertexLightingFourBonesBn<8,9>
 
 // approximately 85 instruction slots used
@@ -265,10 +265,10 @@ ret
 
 const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
 {
-     68,  88,  66,  67, 183,  62, 
-    245, 130, 244, 212, 141, 157, 
-      6, 255,  66, 163,  17, 136, 
-     56, 143,   1,   0,   0,   0, 
+     68,  88,  66,  67, 202, 107, 
+    119,  17, 224, 250, 211, 205, 
+    175, 215,  74, 161,  36, 206, 
+     98, 239,   1,   0,   0,   0, 
     192,  27,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     248,  15,   0,   0, 116,  26, 
@@ -299,7 +299,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     107, 105, 110, 110, 105, 110, 
@@ -312,7 +312,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  85, 116, 105, 108, 105, 
     116, 105, 101, 115,  46, 102, 
@@ -324,7 +324,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
     109, 101,  45,  67, 105,  97, 
     114,  97, 110,  82,  87,  92, 
      68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92, 115, 114, 
+     88,  84,  75,  92,  83, 114, 
      99,  92,  83, 104,  97, 100, 
     101, 114, 115,  92,  76, 105, 
     103, 104, 116, 105, 110, 103, 
@@ -337,7 +337,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
     105,  97, 114,  97, 110,  82, 
      87,  92,  68, 105, 114, 101, 
      99, 116,  88,  84,  75,  92, 
-    115, 114,  99,  92,  83, 104, 
+     83, 114,  99,  92,  83, 104, 
      97, 100, 101, 114, 115,  92, 
      67, 111, 109, 109, 111, 110, 
      46, 102, 120, 104,   0,  68, 
@@ -349,7 +349,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingFourBonesBn[] =
     105,  97, 114,  97, 110,  82, 
      87,  92,  68, 105, 114, 101, 
      99, 116,  88,  84,  75,  92, 
-    115, 114,  99,  92,  83, 104, 
+     83, 114,  99,  92,  83, 104, 
      97, 100, 101, 114, 115,  92, 
      83, 107, 105, 110, 110, 101, 
     100,  69, 102, 102, 101,  99, 

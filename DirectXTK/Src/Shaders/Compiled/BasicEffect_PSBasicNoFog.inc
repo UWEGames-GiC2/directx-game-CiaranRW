@@ -22,7 +22,7 @@
     ps_2_0
     dcl t0  // pin<0,1,2,3>
 
-#line 503 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 503 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mov oC0, t0  // ::PSBasicNoFog<0,1,2,3>
 
 // approximately 1 instruction slot used
@@ -36,10 +36,10 @@ ret
 
 const BYTE BasicEffect_PSBasicNoFog[] =
 {
-     68,  88,  66,  67,   1, 254, 
-    191,  17,  48,  95,   5,  24, 
-     87,  99, 177, 253,  44, 136, 
-     44,  18,   1,   0,   0,   0, 
+     68,  88,  66,  67, 212, 192, 
+     15,  23, 201, 239, 163,  83, 
+      1,  69, 219, 205, 124, 125, 
+     90, 249,   1,   0,   0,   0, 
     108,   2,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     200,   1,   0,   0,   8,   2, 
@@ -68,7 +68,7 @@ const BYTE BasicEffect_PSBasicNoFog[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  66,  97, 115, 105,  99, 
      69, 102, 102, 101,  99, 116, 

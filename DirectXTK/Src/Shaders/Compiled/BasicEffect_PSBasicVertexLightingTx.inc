@@ -41,11 +41,11 @@
     dcl t2.xy  // pin<8,9>
     dcl_2d s0
 
-#line 551 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 551 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     texld r0, t2, s0
     mul r0, r0, t0  // ::color<0,1,2,3>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, t1, r0.w, r0  // AddSpecular::color<0,1,2>
 
 #line 17
@@ -75,10 +75,10 @@ ret
 
 const BYTE BasicEffect_PSBasicVertexLightingTx[] =
 {
-     68,  88,  66,  67,  57,  93, 
-     35, 224,  42,  82,  70, 207, 
-    139,  79, 127, 226, 109, 209, 
-    161, 203,   1,   0,   0,   0, 
+     68,  88,  66,  67, 243,  99, 
+    154, 149,  16,  40, 125, 178, 
+     20, 232, 167,  10, 159, 183, 
+    248, 202,   1,   0,   0,   0, 
     144,   5,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     180,   3,   0,   0, 244,   4, 
@@ -109,7 +109,7 @@ const BYTE BasicEffect_PSBasicVertexLightingTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  66, 
      97, 115, 105,  99,  69, 102, 
@@ -122,7 +122,7 @@ const BYTE BasicEffect_PSBasicVertexLightingTx[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  67, 111, 109, 
     109, 111, 110,  46, 102, 120, 

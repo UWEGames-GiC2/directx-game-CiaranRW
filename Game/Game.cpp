@@ -150,16 +150,16 @@ void Game::Initialize(HWND _window, int _width, int _height)
     VBMC->SetScale(Vector3(3, 3, 1.5));
     m_GameObjects.push_back(VBMC);
 
-    //create a base camera
-    m_cam = new Camera(0.25f * XM_PI, AR, 1.0f, 10000.0f, Vector3::UnitY, Vector3::Zero);
-    m_cam->SetPos(Vector3(0.0f, 200.0f, 200.0f));
-    m_GameObjects.push_back(m_cam);
-
     //add Player
     Player* pPlayer = new Player("Dominus", m_d3dDevice.Get(), m_fxFactory);
     pPlayer->SetScale(0.3);
     //pPlayer->SetPitchYawRoll(0,90,0);
     m_GameObjects.push_back(pPlayer);
+
+    //create a base camera
+    m_FPScam = new FPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
+    //m_cam->SetPos(Vector3(0.0f, 200.0f, 200.0f));
+    m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
     m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(5.0f, 50.0f, 5.0f));
@@ -220,7 +220,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_DD = new DrawData;
     m_DD->m_pd3dImmediateContext = nullptr;
     m_DD->m_states = m_states;
-    m_DD->m_cam = m_cam;
+    m_DD->m_cam = m_FPScam;
     m_DD->m_light = m_light;
 
     //example basic 2D stuff
@@ -321,7 +321,7 @@ void Game::Render()
     m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
 
     //set which camera to be used
-    m_DD->m_cam = m_cam;
+    m_DD->m_cam = m_FPScam;
     if (m_GD->m_GS == GS_PLAY_TPS_CAM)
     {
         m_DD->m_cam = m_TPScam;

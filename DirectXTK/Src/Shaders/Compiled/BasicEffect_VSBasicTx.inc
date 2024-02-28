@@ -44,7 +44,7 @@
     dcl_texcoord v0  // vin<0,1,2,3>
     dcl_texcoord1 v1  // vin<4,5>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c5  // ::VSBasicTx<12>
 
 #line 11
@@ -57,15 +57,15 @@
     dp4 r0.y, v0, c4  // ::vout<1>
     dp4 r0.z, v0, c6  // ::vout<3>
 
-#line 92 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 92 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSBasicTx<10,11>
     mov oPos.w, r0.z  // ::VSBasicTx<13>
 
-#line 41 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 41 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mov oT0, c1  // ::VSBasicTx<0,1,2,3>
     mov oT1.xyz, c7.x  // ::VSBasicTx<4,5,6>
 
-#line 99 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 99 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mov oT2.xy, v1  // ::VSBasicTx<8,9>
 
 // approximately 12 instruction slots used
@@ -91,10 +91,10 @@ ret
 
 const BYTE BasicEffect_VSBasicTx[] =
 {
-     68,  88,  66,  67, 135, 226, 
-    217, 135,  42, 118,  27,  69, 
-    125, 225,  72, 224, 199,  54, 
-    146, 161,   1,   0,   0,   0, 
+     68,  88,  66,  67,  72, 235, 
+    111,   5,  48, 254, 114, 251, 
+    111, 152, 242, 187,  39, 236, 
+     69,  45,   1,   0,   0,   0, 
       4,   7,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     196,   4,   0,   0,  32,   6, 
@@ -129,7 +129,7 @@ const BYTE BasicEffect_VSBasicTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  67, 
     111, 109, 109, 111, 110,  46, 
@@ -141,7 +141,7 @@ const BYTE BasicEffect_VSBasicTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  66, 
      97, 115, 105,  99,  69, 102, 

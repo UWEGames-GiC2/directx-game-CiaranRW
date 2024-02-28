@@ -41,7 +41,7 @@
     dcl t2.xy  // pin<8,9>
     dcl_2d s0
 
-#line 110 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\AlphaTestEffect.fx"
+#line 110 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
     texld r0, t2, s0
     mad r1.w, r0.w, t0.w, -c0.x
     mul r0, r0, t0  // ::color<0,1,2,3>
@@ -50,7 +50,7 @@
     cmp r1, r1.x, c0.w, c0.z
     texkill r1
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, c1, r0.w, -r0
     mad r0.xyz, t1.w, r1, r0  // ApplyFog::color<0,1,2>
     mov oC0, r0  // ::PSAlphaTestEqNe<0,1,2,3>
@@ -81,10 +81,10 @@ ret
 
 const BYTE AlphaTestEffect_PSAlphaTestEqNe[] =
 {
-     68,  88,  66,  67,  94, 139, 
-    107,  36,  34,  62,  35, 220, 
-    201, 237,  59,   1, 115,  48, 
-    173, 245,   1,   0,   0,   0, 
+     68,  88,  66,  67,   3,  74, 
+    220, 243, 204, 162, 105, 129, 
+    243, 249,  75, 230, 224, 123, 
+     63, 162,   1,   0,   0,   0, 
      56,   6,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     220,   3,   0,   0, 156,   5, 
@@ -115,7 +115,7 @@ const BYTE AlphaTestEffect_PSAlphaTestEqNe[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  65, 
     108, 112, 104,  97,  84, 101, 
@@ -129,7 +129,7 @@ const BYTE AlphaTestEffect_PSAlphaTestEqNe[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 

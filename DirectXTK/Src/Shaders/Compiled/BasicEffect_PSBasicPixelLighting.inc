@@ -34,19 +34,19 @@
     dcl t1.xyz  // pin<4,5,6>
     dcl t2  // pin<7,8,9,10>
 
-#line 576 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 576 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     add r0.xyz, -t0, c12
     dp3 r0.w, r0, r0
     rsq r0.w, r0.w
 
-#line 30 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 30 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mad r1.xyz, r0, r0.w, -c3
     nrm r2.xyz, r1  // ::halfVectors<0,1,2>
 
-#line 577 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 577 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     nrm r1.xyz, t1  // ::worldNormal<0,1,2>
 
-#line 34 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 34 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r2.x, r2, r1  // ::dotH<0>
 
 #line 30
@@ -88,17 +88,17 @@
     mad r0.xyz, r0.z, c11, r2
     mul r0.xyz, r0, c2  // ::result<3,4,5>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mul r0.xyz, r0, t2.w
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mul r2.xyz, r1.y, c7
     mad r2.xyz, r1.x, c6, r2
     mad r1.xyz, r1.z, c8, r2
     mov r2.xyz, c0  // Parameters::DiffuseColor<0,1,2>
     mad r1.xyz, r1, r2, c1  // ::result<0,1,2>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r0.xyz, t2, r1, r0  // AddSpecular::color<0,1,2>
 
 #line 17
@@ -167,10 +167,10 @@ ret
 
 const BYTE BasicEffect_PSBasicPixelLighting[] =
 {
-     68,  88,  66,  67, 112, 111, 
-    223, 207,  29,  60,  85,  89, 
-    126, 107,  47,  32,  30, 227, 
-     64,  33,   1,   0,   0,   0, 
+     68,  88,  66,  67, 136,  65, 
+    232,  60, 175, 237, 158,  86, 
+    252, 160,  98,  20, 164,  87, 
+    227, 143,   1,   0,   0,   0, 
      28,  16,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     120,   9,   0,   0, 128,  15, 
@@ -201,7 +201,7 @@ const BYTE BasicEffect_PSBasicPixelLighting[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  66,  97, 115, 105,  99, 
      69, 102, 102, 101,  99, 116, 
@@ -213,7 +213,7 @@ const BYTE BasicEffect_PSBasicPixelLighting[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  76, 
     105, 103, 104, 116, 105, 110, 
@@ -226,7 +226,7 @@ const BYTE BasicEffect_PSBasicPixelLighting[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 

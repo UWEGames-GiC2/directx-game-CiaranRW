@@ -42,7 +42,7 @@
     dcl_texcoord1 v1  // texCoord<0,1>
     dcl_texcoord2 v2  // position<0,1,2,3>
 
-#line 21 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SpriteEffect.fx"
+#line 21 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SpriteEffect.fx"
     mul r0, v2.y, c2
     mad r0, v2.x, c1, r0
     mad r0, v2.z, c3, r0
@@ -74,10 +74,10 @@ ret
 
 const BYTE SpriteEffect_SpriteVertexShader[] =
 {
-     68,  88,  66,  67, 109, 182, 
-     27, 114, 146,  32, 227, 211, 
-     95,  97, 126,  27,  58,  26, 
-    105, 225,   1,   0,   0,   0, 
+     68,  88,  66,  67,  30, 246, 
+    188, 165, 113,  46, 222,  73, 
+    234,  75,  26,  88, 238,  59, 
+    139,  43,   1,   0,   0,   0, 
      48,   5,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      16,   3,   0,   0,  72,   4, 
@@ -108,7 +108,7 @@ const BYTE SpriteEffect_SpriteVertexShader[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     112, 114, 105, 116, 101,  69, 

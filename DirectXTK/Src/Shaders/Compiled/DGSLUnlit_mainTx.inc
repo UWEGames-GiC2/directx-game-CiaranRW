@@ -38,7 +38,7 @@
     dcl t1.xy  // pixel<8,9>
     dcl_2d s0
 
-#line 113 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLUnlit.hlsl"
+#line 113 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLUnlit.hlsl"
     texld r0, t1, s0
     mul r1, r0, t0  // ::local3<0,1,2>, ::local4<0>
     mov oC0, r1  // ::mainTx<0,1,2,3>
@@ -59,10 +59,10 @@ ret
 
 const BYTE DGSLUnlit_mainTx[] =
 {
-     68,  88,  66,  67,  30, 230, 
-    139,  14,  47,  21, 140,  52, 
-    155,   8, 210,  82, 214,  88, 
-    149, 206,   1,   0,   0,   0, 
+     68,  88,  66,  67,  74,  73, 
+      0, 109,  43, 129, 187,  44, 
+    147, 212,  90,  74,  12,  22, 
+      3, 224,   1,   0,   0,   0, 
     224,   4,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      36,   3,   0,   0, 192,   3, 
@@ -91,7 +91,7 @@ const BYTE DGSLUnlit_mainTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
      71,  83,  76,  85, 110, 108, 

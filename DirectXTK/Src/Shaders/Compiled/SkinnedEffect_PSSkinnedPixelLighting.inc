@@ -44,20 +44,20 @@
     dcl t3  // pin<9,10,11,12>
     dcl_2d s0
 
-#line 361 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 361 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     texld r0, t0, s0
     add r1.xyz, -t1, c12
     dp3 r1.w, r1, r1
     rsq r1.w, r1.w
 
-#line 30 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 30 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mad r2.xyz, r1, r1.w, -c3
     nrm r3.xyz, r2  // ::halfVectors<0,1,2>
 
-#line 364 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 364 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     nrm r2.xyz, t2  // ::worldNormal<0,1,2>
 
-#line 34 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 34 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r3.x, r3, r2  // ::dotH<0>
 
 #line 30
@@ -99,20 +99,20 @@
     mad r1.xyz, r1.z, c11, r3
     mul r1.xyz, r1, c2  // ::result<3,4,5>
 
-#line 361 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 361 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mul r0, r0, t3  // ::color<0,1,2,3>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mul r1.xyz, r0.w, r1
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mul r3.xyz, r2.y, c7
     mad r3.xyz, r2.x, c6, r3
     mad r2.xyz, r2.z, c8, r3
     mov r3.xyz, c0  // Parameters::DiffuseColor<0,1,2>
     mad r2.xyz, r2, r3, c1  // ::result<0,1,2>
 
-#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 23 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, r0, r2, r1  // AddSpecular::color<0,1,2>
 
 #line 17
@@ -185,10 +185,10 @@ ret
 
 const BYTE SkinnedEffect_PSSkinnedPixelLighting[] =
 {
-     68,  88,  66,  67, 188,  41, 
-    193,  69,  22, 236, 245, 188, 
-    223,  94, 151,  13, 186,   6, 
-    145, 231,   1,   0,   0,   0, 
+     68,  88,  66,  67,  72,  10, 
+     98, 130, 226,  92, 213, 131, 
+     33, 242, 223, 125,  80,  37, 
+    181, 118,   1,   0,   0,   0, 
      52,  17,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      16,  10,   0,   0, 128,  16, 
@@ -219,7 +219,7 @@ const BYTE SkinnedEffect_PSSkinnedPixelLighting[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     107, 105, 110, 110, 101, 100, 
@@ -232,7 +232,7 @@ const BYTE SkinnedEffect_PSSkinnedPixelLighting[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  76, 
     105, 103, 104, 116, 105, 110, 
@@ -245,7 +245,7 @@ const BYTE SkinnedEffect_PSSkinnedPixelLighting[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  67, 111, 109, 109, 111, 
     110,  46, 102, 120, 104,   0, 

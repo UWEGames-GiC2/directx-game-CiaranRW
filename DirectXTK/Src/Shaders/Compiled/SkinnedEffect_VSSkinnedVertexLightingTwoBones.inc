@@ -48,7 +48,7 @@
     dcl_texcoord3 v3  // vin<9,10,11,12>
     dcl_texcoord4 v4  // vin<13,14,15,16>
 
-#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Skinning.fxh"
+#line 15 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Skinning.fxh"
     mul r0.xy, v3, c243.x
     mova a0.xy, r0.yxzw
     mul r0, v4.y, c26[a0.x]
@@ -70,7 +70,7 @@
     dp3 r1.z, v1, r3  // ::Skin<2>
     dp4 r0.z, v0, r3  // Skin::vin<2>
 
-#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 56 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r2.x, r1, c19
     dp3 r2.y, r1, c20
     dp3 r2.z, r1, c21
@@ -142,24 +142,24 @@
 #line 60
     dp4 oPos.z, r0, c24  // ::VSSkinnedVertexLightingTwoBones<12>
 
-#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 11 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r1.x, r0, c14
     max r1.x, r1.x, c243.y
     min oT1.w, r1.x, c243.z  // ::VSSkinnedVertexLightingTwoBones<7>
 
-#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 60 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     dp4 r1.x, r0, c22  // ::vout<0>
     dp4 r1.y, r0, c23  // ::vout<1>
     dp4 r0.x, r0, c25  // ::vout<3>
 
-#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 75 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mad oPos.xy, r0.x, c242, r1  // ::VSSkinnedVertexLightingTwoBones<10,11>
     mov oPos.w, r0.x  // ::VSSkinnedVertexLightingTwoBones<13>
 
-#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Lighting.fxh"
+#line 43 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c0.w  // ::VSSkinnedVertexLightingTwoBones<3>
 
-#line 79 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\SkinnedEffect.fx"
+#line 79 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\SkinnedEffect.fx"
     mov oT2.xy, v2  // ::VSSkinnedVertexLightingTwoBones<8,9>
 
 // approximately 78 instruction slots used
@@ -249,10 +249,10 @@ ret
 
 const BYTE SkinnedEffect_VSSkinnedVertexLightingTwoBones[] =
 {
-     68,  88,  66,  67, 208, 185, 
-    163,  12, 203,  22, 189, 221, 
-    188,  85,  74, 141, 127, 253, 
-    144, 178,   1,   0,   0,   0, 
+     68,  88,  66,  67, 141,  24, 
+    232, 252,   2, 227, 140,  12, 
+    228, 230, 179, 209, 220, 236, 
+    184, 186,   1,   0,   0,   0, 
     196,  24,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      88,  14,   0,   0, 120,  23, 
@@ -283,7 +283,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingTwoBones[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  83, 
     107, 105, 110, 110, 105, 110, 
@@ -296,7 +296,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingTwoBones[] =
      67, 105,  97, 114,  97, 110, 
      82,  87,  92,  68, 105, 114, 
     101,  99, 116,  88,  84,  75, 
-     92, 115, 114,  99,  92,  83, 
+     92,  83, 114,  99,  92,  83, 
     104,  97, 100, 101, 114, 115, 
      92,  76, 105, 103, 104, 116, 
     105, 110, 103,  46, 102, 120, 
@@ -308,7 +308,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingTwoBones[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  67, 111, 109, 
     109, 111, 110,  46, 102, 120, 
@@ -320,7 +320,7 @@ const BYTE SkinnedEffect_VSSkinnedVertexLightingTwoBones[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  83, 107, 105, 
     110, 110, 101, 100,  69, 102, 

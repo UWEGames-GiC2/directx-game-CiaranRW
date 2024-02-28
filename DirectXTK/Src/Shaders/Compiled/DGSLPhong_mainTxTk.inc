@@ -53,7 +53,7 @@
     dcl t4.xyz  // pixel<16,17,18>
     dcl_2d s0
 
-#line 200 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\DGSLPhong.hlsl"
+#line 200 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\DGSLPhong.hlsl"
     texld r0, t1, s0
     mul r1.w, r0.w, t0.w  // ::local6<0>
 
@@ -209,10 +209,10 @@ ret
 
 const BYTE DGSLPhong_mainTxTk[] =
 {
-     68,  88,  66,  67, 255, 158, 
-    194,  69,  77, 179, 123,  48, 
-     34, 189,  13, 155, 225, 218, 
-    213,  95,   1,   0,   0,   0, 
+     68,  88,  66,  67, 111,  99, 
+      6, 127,   3, 227, 189,  23, 
+    201, 227,  23,  58,  17,  21, 
+    200,  46,   1,   0,   0,   0, 
      16,  18,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      36,  10,   0,   0, 240,  16, 
@@ -253,7 +253,7 @@ const BYTE DGSLPhong_mainTxTk[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  68, 
      71,  83,  76,  80, 104, 111, 

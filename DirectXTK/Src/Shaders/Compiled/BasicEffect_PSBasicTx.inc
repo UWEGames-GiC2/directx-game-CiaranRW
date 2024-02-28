@@ -41,11 +41,11 @@
     dcl t2.xy  // pin<8,9>
     dcl_2d s0
 
-#line 510 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\BasicEffect.fx"
+#line 510 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     texld r0, t2, s0
     mul r0, r0, t0  // ::color<0,1,2,3>
 
-#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\src\Shaders\Common.fxh"
+#line 17 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mad r1.xyz, c0, r0.w, -r0
     mad r0.xyz, t1.w, r1, r0  // ApplyFog::color<0,1,2>
     mov oC0, r0  // ::PSBasicTx<0,1,2,3>
@@ -71,10 +71,10 @@ ret
 
 const BYTE BasicEffect_PSBasicTx[] =
 {
-     68,  88,  66,  67, 178, 135, 
-     15,  30, 165, 248, 132,  98, 
-    229,  95, 229, 228,  43,  95, 
-    237, 139,   1,   0,   0,   0, 
+     68,  88,  66,  67, 108, 152, 
+    105,  60,  35,  41,  82, 246, 
+    182,  95, 216,  66, 165,  73, 
+     46,  70,   1,   0,   0,   0, 
      24,   5,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      96,   3,   0,   0, 124,   4, 
@@ -105,7 +105,7 @@ const BYTE BasicEffect_PSBasicTx[] =
      97, 109, 101,  45,  67, 105, 
      97, 114,  97, 110,  82,  87, 
      92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92, 115, 
+    116,  88,  84,  75,  92,  83, 
     114,  99,  92,  83, 104,  97, 
     100, 101, 114, 115,  92,  66, 
      97, 115, 105,  99,  69, 102, 
@@ -118,7 +118,7 @@ const BYTE BasicEffect_PSBasicTx[] =
     101,  45,  67, 105,  97, 114, 
      97, 110,  82,  87,  92,  68, 
     105, 114, 101,  99, 116,  88, 
-     84,  75,  92, 115, 114,  99, 
+     84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
     114, 115,  92,  67, 111, 109, 
     109, 111, 110,  46, 102, 120, 
