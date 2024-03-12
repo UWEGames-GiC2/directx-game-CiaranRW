@@ -43,18 +43,18 @@
     dcl_texcoord1 v1  // vin<4,5>
     dcl_texcoord2 v2  // vin<6,7,8,9>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c4  // ::VSBasicTxVcNoFog<8>
 
-#line 143 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
+#line 143 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mul oT0, v2, c1  // ::VSBasicTxVcNoFog<0,1,2,3>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c2  // ::vout<0>
     dp4 r0.y, v0, c3  // ::vout<1>
     dp4 r0.z, v0, c5  // ::vout<3>
 
-#line 135 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
+#line 135 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\BasicEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSBasicTxVcNoFog<6,7>
     mov oPos.w, r0.z  // ::VSBasicTxVcNoFog<9>
 
@@ -82,10 +82,10 @@ ret
 
 const BYTE BasicEffect_VSBasicTxVcNoFog[] =
 {
-     68,  88,  66,  67, 223,  67, 
-     22,  45, 178, 219, 169,  52, 
-    220,  76, 110, 255, 170,  98, 
-     10,  57,   1,   0,   0,   0, 
+     68,  88,  66,  67,  79,  19, 
+    171, 133,  46, 197, 162, 169, 
+      0,  22, 173, 210, 192, 134, 
+    110, 183,   1,   0,   0,   0, 
     100,   6,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      88,   4,   0,   0, 124,   5, 
@@ -111,32 +111,32 @@ const BYTE BasicEffect_VSBasicTxVcNoFog[] =
     196,   0,   0,   0,   3,   0, 
       0,   0, 204,   2,   0,   0, 
      28,   1,   0,   0,  68,  58, 
-     92,  67, 105,  97, 114,  97, 
-    110,  32, 102, 111, 108, 100, 
-    101, 114,  92, 100, 105, 114, 
-    101,  99, 116, 120,  45, 103, 
-     97, 109, 101,  45,  67, 105, 
-     97, 114,  97, 110,  82,  87, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  67, 
-    111, 109, 109, 111, 110,  46, 
-    102, 120, 104,   0,  68,  58, 
-     92,  67, 105,  97, 114,  97, 
-    110,  32, 102, 111, 108, 100, 
-    101, 114,  92, 100, 105, 114, 
-    101,  99, 116, 120,  45, 103, 
-     97, 109, 101,  45,  67, 105, 
-     97, 114,  97, 110,  82,  87, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  66, 
-     97, 115, 105,  99,  69, 102, 
-    102, 101,  99, 116,  46, 102, 
-    120,   0,  40,   0,   0,   0, 
-    112,   0,   0,   0,   0,   0, 
+     92,  89, 101,  97, 114,  50, 
+     92,  83,  99,  97, 114, 108, 
+    101,  92, 100, 105, 114, 101, 
+     99, 116, 120,  45, 103,  97, 
+    109, 101,  45,  67, 105,  97, 
+    114,  97, 110,  82,  87,  92, 
+     68, 105, 114, 101,  99, 116, 
+     88,  84,  75,  92,  83, 114, 
+     99,  92,  83, 104,  97, 100, 
+    101, 114, 115,  92,  67, 111, 
+    109, 109, 111, 110,  46, 102, 
+    120, 104,   0,  68,  58,  92, 
+     89, 101,  97, 114,  50,  92, 
+     83,  99,  97, 114, 108, 101, 
+     92, 100, 105, 114, 101,  99, 
+    116, 120,  45, 103,  97, 109, 
+    101,  45,  67, 105,  97, 114, 
+     97, 110,  82,  87,  92,  68, 
+    105, 114, 101,  99, 116,  88, 
+     84,  75,  92,  83, 114,  99, 
+     92,  83, 104,  97, 100, 101, 
+    114, 115,  92,  66,  97, 115, 
+    105,  99,  69, 102, 102, 101, 
+     99, 116,  46, 102, 120,   0, 
+    171, 171,  40,   0,   0,   0, 
+    111,   0,   0,   0,   0,   0, 
     255, 255,  60,   3,   0,   0, 
       0,   0, 255, 255,  72,   3, 
       0,   0,   0,   0, 255, 255, 
