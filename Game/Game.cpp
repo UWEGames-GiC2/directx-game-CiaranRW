@@ -164,7 +164,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(VBMC);
 
     //add Player
-    Player* pPlayer = new Player("table", m_d3dDevice.Get(), m_fxFactory);
+    Player* pPlayer = new Player("Dominus", m_d3dDevice.Get(), m_fxFactory);
     pPlayer->SetScale(0.3);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);

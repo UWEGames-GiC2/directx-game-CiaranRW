@@ -43,7 +43,7 @@
     dcl_texcoord v0  // vin<0,1,2,3>
     dcl_texcoord1 v1  // vin<4,5>
 
-#line 40 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c5  // ::VSAlphaTest<12>
 
 #line 11
@@ -56,15 +56,15 @@
     dp4 r0.y, v0, c4  // ::vout<1>
     dp4 r0.z, v0, c6  // ::vout<3>
 
-#line 26 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
+#line 26 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSAlphaTest<10,11>
     mov oPos.w, r0.z  // ::VSAlphaTest<13>
 
-#line 41 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
+#line 41 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\Common.fxh"
     mov oT0, c1  // ::VSAlphaTest<0,1,2,3>
     mov oT1.xyz, c7.x  // ::VSAlphaTest<4,5,6>
 
-#line 33 "D:\Ciaran folder\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
+#line 33 "D:\Year2\Scarle\directx-game-CiaranRW\DirectXTK\Src\Shaders\AlphaTestEffect.fx"
     mov oT2.xy, v1  // ::VSAlphaTest<8,9>
 
 // approximately 12 instruction slots used
@@ -90,10 +90,10 @@ ret
 
 const BYTE AlphaTestEffect_VSAlphaTest[] =
 {
-     68,  88,  66,  67,  55, 188, 
-    110,  82, 211,  99, 109, 136, 
-    175,   8,   0, 233, 160,  70, 
-     54,  36,   1,   0,   0,   0, 
+     68,  88,  66,  67,  62,   1, 
+     93,  89, 137, 138,  46, 216, 
+     25, 199,  66,  59, 154, 160, 
+    118, 174,   1,   0,   0,   0, 
     252,   6,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     188,   4,   0,   0,  24,   6, 
@@ -119,32 +119,32 @@ const BYTE AlphaTestEffect_VSAlphaTest[] =
     200,   0,   0,   0,   3,   0, 
       0,   0, 236,   2,   0,   0, 
      64,   1,   0,   0,  68,  58, 
-     92,  67, 105,  97, 114,  97, 
-    110,  32, 102, 111, 108, 100, 
-    101, 114,  92, 100, 105, 114, 
-    101,  99, 116, 120,  45, 103, 
-     97, 109, 101,  45,  67, 105, 
-     97, 114,  97, 110,  82,  87, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  67, 
-    111, 109, 109, 111, 110,  46, 
-    102, 120, 104,   0,  68,  58, 
-     92,  67, 105,  97, 114,  97, 
-    110,  32, 102, 111, 108, 100, 
-    101, 114,  92, 100, 105, 114, 
-    101,  99, 116, 120,  45, 103, 
-     97, 109, 101,  45,  67, 105, 
-     97, 114,  97, 110,  82,  87, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  65, 
-    108, 112, 104,  97,  84, 101, 
-    115, 116,  69, 102, 102, 101, 
-     99, 116,  46, 102, 120,   0, 
-     40,   0,   0,   0, 112,   0, 
+     92,  89, 101,  97, 114,  50, 
+     92,  83,  99,  97, 114, 108, 
+    101,  92, 100, 105, 114, 101, 
+     99, 116, 120,  45, 103,  97, 
+    109, 101,  45,  67, 105,  97, 
+    114,  97, 110,  82,  87,  92, 
+     68, 105, 114, 101,  99, 116, 
+     88,  84,  75,  92,  83, 114, 
+     99,  92,  83, 104,  97, 100, 
+    101, 114, 115,  92,  67, 111, 
+    109, 109, 111, 110,  46, 102, 
+    120, 104,   0,  68,  58,  92, 
+     89, 101,  97, 114,  50,  92, 
+     83,  99,  97, 114, 108, 101, 
+     92, 100, 105, 114, 101,  99, 
+    116, 120,  45, 103,  97, 109, 
+    101,  45,  67, 105,  97, 114, 
+     97, 110,  82,  87,  92,  68, 
+    105, 114, 101,  99, 116,  88, 
+     84,  75,  92,  83, 114,  99, 
+     92,  83, 104,  97, 100, 101, 
+    114, 115,  92,  65, 108, 112, 
+    104,  97,  84, 101, 115, 116, 
+     69, 102, 102, 101,  99, 116, 
+     46, 102, 120,   0, 171, 171, 
+     40,   0,   0,   0, 111,   0, 
       0,   0,   0,   0, 255, 255, 
      92,   3,   0,   0,   0,   0, 
     255, 255, 116,   3,   0,   0, 
