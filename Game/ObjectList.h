@@ -6,6 +6,7 @@
 //3D Game Objects
 #include "gameobject.h"
 #include "camera.h"
+#include "FPSCamera.h"
 #include "TPSCamera.h"
 #include "CMOGO.h"
 #include "Tree.h"
