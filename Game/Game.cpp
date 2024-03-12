@@ -164,19 +164,18 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(VBMC);
 
     //add Player
-    Player* pPlayer = new Player("Dominus", m_d3dDevice.Get(), m_fxFactory);
+    Player* pPlayer = new Player("table", m_d3dDevice.Get(), m_fxFactory);
     pPlayer->SetScale(0.3);
-    //pPlayer->SetPitchYawRoll(0,90,0);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
 
-    //create a base camera
+    //create a FPS camera
     m_FPScam = new FPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
     //m_cam->SetPos(Vector3(0.0f, 200.0f, 200.0f));
     m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
-    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(5.0f, 50.0f, 5.0f));
+    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 50.0f, 5.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
