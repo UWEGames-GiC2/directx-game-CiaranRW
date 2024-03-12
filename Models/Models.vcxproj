@@ -150,10 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Bird\BirdModelV1.fbx" />
-    <MeshContentTask Include="source\character.fbx" />
-    <MeshContentTask Include="source\characterBase.fbx" />
-    <MeshContentTask Include="source\Dominus.fbx" />
-    <MeshContentTask Include="source\Soldier.fbx" />
+    <MeshContentTask Include="NotSource\StylisedWomanColoured.fbx" />
+    <MeshContentTask Include="source\WomanUpdated.fbx" />
     <MeshContentTask Include="Table\table.FBX">
       <FileType>Document</FileType>
     </MeshContentTask>

@@ -164,8 +164,8 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(VBMC);
 
     //add Player
-    Player* pPlayer = new Player("Dominus", m_d3dDevice.Get(), m_fxFactory);
-    pPlayer->SetScale(0.3);
+    Player* pPlayer = new Player("WomanUpdated", m_d3dDevice.Get(), m_fxFactory);
+    pPlayer->SetScale(0.01);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
 
@@ -175,7 +175,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
-    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 50.0f, 5.0f));
+    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 30.0f, 15.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
@@ -244,19 +244,19 @@ void Game::Initialize(HWND _window, int _width, int _height)
     bug_test->SetPos(300.0f * Vector2::One);
     m_GameObjects2D.push_back(bug_test);
 
-    TextGO2D* text = new TextGO2D("Test Text");
+    TextGO2D* text = new TextGO2D("I DONE IT");
     text->SetPos(Vector2(100, 10));
     text->SetColour(Color((float*)&Colors::Yellow));
     m_GameObjects2D.push_back(text);
 
-    //Test Sounds
-    Loop* loop = new Loop(m_audioEngine.get(), "NightAmbienceSimple_02");
-    loop->SetVolume(0.1f);
-    loop->Play();
-    m_Sounds.push_back(loop);
+    //Test Sounds SOUNDS HORRIBLE
+    //Loop* loop = new Loop(m_audioEngine.get(), "NightAmbienceSimple_02");
+    //loop->SetVolume(0.1f);
+    //loop->Play();
+    //m_Sounds.push_back(loop);
 
-    TestSound* TS = new TestSound(m_audioEngine.get(), "Explo1");
-    m_Sounds.push_back(TS);
+    //TestSound* TS = new TestSound(m_audioEngine.get(), "Explo1");
+    //m_Sounds.push_back(TS);
 }
 
 // Executes the basic game loop.
