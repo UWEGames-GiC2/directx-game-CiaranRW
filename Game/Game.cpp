@@ -105,6 +105,18 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(terrain2);
     m_ColliderObjects.push_back(terrain2);
 
+    Terrain* terrain3 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 10.0f, 100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(terrain3);
+    m_ColliderObjects.push_back(terrain3);
+
+    Terrain* terrain4 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(145.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(terrain4);
+    m_ColliderObjects.push_back(terrain4);
+
+    Terrain* terrain5 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(45.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(terrain5);
+    m_ColliderObjects.push_back(terrain5);
+
     //L-system like tree
     Tree* tree = new Tree(4, 4, .6f, 10.0f * Vector3::Up, XM_PI / 6.0f, "JEMINA vase -up", m_d3dDevice.Get(), m_fxFactory);
     m_GameObjects.push_back(tree);  
@@ -165,7 +177,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
 
     //add Player
     Player* pPlayer = new Player("WomanUpdated", m_d3dDevice.Get(), m_fxFactory);
-    pPlayer->SetScale(0.01);
+    pPlayer->SetScale(0.1);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
 
