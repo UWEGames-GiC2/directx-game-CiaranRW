@@ -12,6 +12,7 @@
 #include "Mouse.h"
 #include "Audio.h"
 #include "CMOGO.h"
+#include "Projectile.h"
 
 using std::list;
 
@@ -114,7 +115,12 @@ private:
     std::vector<CMOGO*> m_ColliderObjects;
     std::vector<CMOGO*> m_PhysicsObjects;
 
+    std::vector<CMOGO*> m_PlayerProjectiles;
+    std::vector<Projectile*> m_Projectile;
+
     void CheckCollision();
+
+    void CheckProjectileCollision();
                                          
     //sound stuff
 	//This uses a simple system, but a better pipeline can be used using Wave Banks

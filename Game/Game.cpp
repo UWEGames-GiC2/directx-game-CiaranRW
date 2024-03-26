@@ -126,60 +126,70 @@ void Game::Initialize(HWND _window, int _width, int _height)
     FileVBGO* terrainBox = new FileVBGO("terrainTex", m_d3dDevice.Get());
     m_GameObjects.push_back(terrainBox);
 
-    FileVBGO* Box = new FileVBGO("cube", m_d3dDevice.Get());
-    m_GameObjects.push_back(Box);
-    Box->SetPos(Vector3(0.0f, 0.0f, -100.0f));
-    Box->SetPitch(XM_PIDIV4);
-    Box->SetScale(20.0f);
+    //FileVBGO* Box = new FileVBGO("cube", m_d3dDevice.Get());
+    //m_GameObjects.push_back(Box);
+    //Box->SetPos(Vector3(0.0f, 0.0f, -100.0f));
+    //Box->SetPitch(XM_PIDIV4);
+    //Box->SetScale(20.0f);
 
-    VBCube* cube = new VBCube();
-    cube->init(11, m_d3dDevice.Get());
-    cube->SetPos(Vector3(100.0f, 0.0f, 0.0f));
-    cube->SetScale(4.0f);
-    m_GameObjects.push_back(cube);
+    //VBCube* cube = new VBCube();
+    //cube->init(11, m_d3dDevice.Get());
+    //cube->SetPos(Vector3(100.0f, 0.0f, 0.0f));
+    //cube->SetScale(4.0f);
+    //m_GameObjects.push_back(cube);
 
-    VBSpike* spikes = new VBSpike();
-    spikes->init(11, m_d3dDevice.Get());
-    spikes->SetPos(Vector3(0.0f, 0.0f, 100.0f));
-    spikes->SetScale(4.0f);
-    m_GameObjects.push_back(spikes);
+    //VBSpike* spikes = new VBSpike();
+    //spikes->init(11, m_d3dDevice.Get());
+    //spikes->SetPos(Vector3(0.0f, 0.0f, 100.0f));
+    //spikes->SetScale(4.0f);
+    //m_GameObjects.push_back(spikes);
 
-    VBSpiral* spiral = new VBSpiral();
-    spiral->init(11, m_d3dDevice.Get());
-    spiral->SetPos(Vector3(-100.0f, 0.0f, 0.0f));
-    spiral->SetScale(4.0f);
-    m_GameObjects.push_back(spiral);
+    //VBSpiral* spiral = new VBSpiral();
+    //spiral->init(11, m_d3dDevice.Get());
+    //spiral->SetPos(Vector3(-100.0f, 0.0f, 0.0f));
+    //spiral->SetScale(4.0f);
+    //m_GameObjects.push_back(spiral);
 
-    VBPillow* pillow = new VBPillow();
-    pillow->init(11, m_d3dDevice.Get());
-    pillow->SetPos(Vector3(-100.0f, 0.0f, -100.0f));
-    pillow->SetScale(4.0f);
-    m_GameObjects.push_back(pillow);
+    //VBPillow* pillow = new VBPillow();
+    //pillow->init(11, m_d3dDevice.Get());
+    //pillow->SetPos(Vector3(-100.0f, 0.0f, -100.0f));
+    //pillow->SetScale(4.0f);
+    //m_GameObjects.push_back(pillow);
 
-    VBCube* test = new VBCube();
-    test->init(11, m_d3dDevice.Get());
-    test->SetPos(Vector3(200.0f, 0.0f, -100.0f));
-    test->SetScale(4.0f);
-    m_GameObjects.push_back(test);
+    //VBCube* test = new VBCube();
+    //test->init(11, m_d3dDevice.Get());
+    //test->SetPos(Vector3(200.0f, 0.0f, -100.0f));
+    //test->SetScale(4.0f);
+    //m_GameObjects.push_back(test);
 
-    VBSnail* snail = new VBSnail(m_d3dDevice.Get(), "shell", 150, 0.98f, 0.09f * XM_PI, 0.4f, Color(1.0f, 0.0f, 0.0f, 1.0f), Color(0.0f, 0.0f, 1.0f, 1.0f));
-    snail->SetPos(Vector3(-100.0f, 0.0f, 100.0f));
-    snail->SetScale(2.0f);
-    m_GameObjects.push_back(snail);
+    //VBSnail* snail = new VBSnail(m_d3dDevice.Get(), "shell", 150, 0.98f, 0.09f * XM_PI, 0.4f, Color(1.0f, 0.0f, 0.0f, 1.0f), Color(0.0f, 0.0f, 1.0f, 1.0f));
+    //snail->SetPos(Vector3(-100.0f, 0.0f, 100.0f));
+    //snail->SetScale(2.0f);
+    //m_GameObjects.push_back(snail);
 
     //Marching Cubes
-    VBMarchCubes* VBMC = new VBMarchCubes();
-    VBMC->init(Vector3(-8.0f, -8.0f, -17.0f), Vector3(8.0f, 8.0f, 23.0f), 60.0f * Vector3::One, 0.01, m_d3dDevice.Get());
-    VBMC->SetPos(Vector3(100, 0, -100));
-    VBMC->SetPitch(-XM_PIDIV2);
-    VBMC->SetScale(Vector3(3, 3, 1.5));
-    m_GameObjects.push_back(VBMC);
+    //VBMarchCubes* VBMC = new VBMarchCubes();
+    //VBMC->init(Vector3(-8.0f, -8.0f, -17.0f), Vector3(8.0f, 8.0f, 23.0f), 60.0f * Vector3::One, 0.01, m_d3dDevice.Get());
+    //VBMC->SetPos(Vector3(100, 0, -100));
+    //VBMC->SetPitch(-XM_PIDIV2);
+    //VBMC->SetScale(Vector3(3, 3, 1.5));
+    //m_GameObjects.push_back(VBMC);
+
+
+    for (size_t i = 0; i < 10; i++)
+    {
+        Projectile* pProjectile = new Projectile("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+        pProjectile->SetActive(false);
+        m_GameObjects.push_back(pProjectile);
+        m_PlayerProjectiles.push_back(pProjectile);
+    }
 
     //add Player
     Player* pPlayer = new Player("WomanUpdated", m_d3dDevice.Get(), m_fxFactory);
     pPlayer->SetScale(0.1);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
+    pPlayer->projectiles = m_PlayerProjectiles;
 
     //create a FPS camera
     m_FPScam = new FPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
@@ -191,7 +201,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
-    float* params = new float[3];
+    /*float* params = new float[3];
     params[0] = 10.f;  params[1] = 20.0f; params[2] = 30.f;
     GPGO* pGPGO = new GPGO(m_d3dContext.Get(), GPGO_BOX, (float*)&Colors::Azure, params);
     pGPGO->SetPos(Vector3(-50.0f, 10.0f, -100.f));
@@ -239,7 +249,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     params[0] = 30.0f; params[1] = 10.0f; params[2] = (size_t)32;
     pGPGO = new GPGO(m_d3dContext.Get(), GPGO_TORUS, (float*)&Colors::Aquamarine, params);
     pGPGO->SetPos(Vector3(-50.0f, 10.0f, 230.f));
-    m_GameObjects.push_back(pGPGO);
+    m_GameObjects.push_back(pGPGO);*/
 
     //create DrawData struct and populate its pointers
     m_DD = new DrawData;
@@ -331,6 +341,7 @@ void Game::Update(DX::StepTimer const& _timer)
     }
 
     CheckCollision();
+    CheckProjectileCollision();
 }
 
 // Draws the scene.
@@ -360,14 +371,20 @@ void Game::Render()
     //Draw 3D Game Obejects
     for (list<GameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
     {
-        (*it)->Draw(m_DD);
+        if ((*it)->IsActive())
+        {
+            (*it)->Draw(m_DD);
+        }
     }
 
     // Draw sprite batch stuff 
     m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
     for (list<GameObject2D*>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
     {
-        (*it)->Draw(m_DD2D);
+        if ((*it)->IsActive())
+        {
+            (*it)->Draw(m_DD2D);
+        }
     }
     m_DD2D->m_Sprites->End();
 
@@ -658,6 +675,18 @@ void Game::CheckCollision()
             XMFLOAT3 eject_vect = Collision::ejectionCMOGO(*m_PhysicsObjects[i], *m_ColliderObjects[j]);
             auto pos = m_PhysicsObjects[i]->GetPos();
             m_PhysicsObjects[i]->SetPos(pos - eject_vect);
+        }
+    }
+}
+
+void Game::CheckProjectileCollision()
+{
+    for (int i = 0; i < m_PlayerProjectiles.size(); i++) for (int j = 0; j < m_ColliderObjects.size(); j++)
+    {
+        if (m_PlayerProjectiles[i]->IsActive() && m_PlayerProjectiles[i]->Intersects(*m_ColliderObjects[j]))
+        {
+            std::cout << "Projectile collision!" << std::endl;
+            m_PlayerProjectiles[i]->SetActive(false);
         }
     }
 }

@@ -79,6 +79,31 @@ void Player::Tick(GameData* _GD)
 	{
 		m_acc.y -= 40.0f;
 	}
+	//WHERE PROJECTILES DONE
+	if (_GD->m_KBS_tracker.pressed.B)
+	{	
+		printf("pressed B \n");
+		bool foundProjectile = false;
+		for (size_t i = 0; i < projectiles.size(); i++)
+		{
+			if (!projectiles[i]->IsActive())
+			{
+				printf("Found usable projectile\n");
+				Vector3 forwardMove = 40.0f * Vector3::Forward;
+				Matrix rotMove = Matrix::CreateRotationY(m_yaw);
+				forwardMove = Vector3::Transform(forwardMove, rotMove);
+				projectiles[i]->SetPos(this->GetPos());
+				projectiles[i]->SetActive(true);
+				projectiles[i]->SetYaw(this->GetYaw());
+				projectiles[i]->SetDrag(0.01f);
+				projectiles[i]->SetPhysicsOn(true);
+				projectiles[i]->SetAcceleration(forwardMove * 100.0f);
+
+
+				break;
+			}
+		}
+	}
 
 	//limit motion of the player
 	float length = m_pos.Length();
