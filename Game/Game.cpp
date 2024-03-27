@@ -64,11 +64,11 @@ void Game::Initialize(HWND _window, int _width, int _height)
     ShowCursor(false);
 
     //create GameData struct and populate its pointers
-    m_GD = new GameData;
+    m_GD = std::make_shared<GameData>();
     m_GD->m_GS = GS_PLAY_MAIN_CAM;
 
     //set up systems for 2D rendering
-    m_DD2D = new DrawData2D();
+    m_DD2D = std::make_shared<DrawData2D>();
     m_DD2D->m_Sprites.reset(new SpriteBatch(m_d3dContext.Get()));
     m_DD2D->m_Font.reset(new SpriteFont(m_d3dDevice.Get(), L"..\\Assets\\italic.spritefont"));
     m_states = new CommonStates(m_d3dDevice.Get());
@@ -90,41 +90,41 @@ void Game::Initialize(HWND _window, int _width, int _height)
     //create a set of dummy things to show off the engine
 
     //create a base light
-    m_light = new Light(Vector3(0.0f, 100.0f, 160.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.4f, 0.1f, 0.1f, 1.0f));
+    std::shared_ptr<Light> m_light = std::make_shared<Light>(Vector3(0.0f, 100.0f, 160.0f), Color(1.0f, 1.0f, 1.0f, 1.0f), Color(0.4f, 0.1f, 0.1f, 1.0f));
     m_GameObjects.push_back(m_light);
 
     //find how big my window is to correctly calculate my aspect ratio
     float AR = (float)_width / (float)_height;
 
     //example basic 3D stuff
-    Terrain* terrain = new Terrain("table", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 0.0f, 100.0f), 0.0f, 0.0f, 0.0f, 0.25f * Vector3::One);
+    std::shared_ptr<Terrain> terrain = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 0.0f, 100.0f), 0.0f, 0.0f, 0.0f, 0.25f * Vector3::One);
     m_GameObjects.push_back(terrain);
     m_ColliderObjects.push_back(terrain);
 
-    Terrain* terrain2 = new Terrain("table", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, -100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain2 = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, -100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain2);
     m_ColliderObjects.push_back(terrain2);
 
-    Terrain* terrain3 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 10.0f, 100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 10.0f, 100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain3);
     m_ColliderObjects.push_back(terrain3);
 
-    Terrain* terrain4 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(145.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(145.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain4);
     m_ColliderObjects.push_back(terrain4);
 
-    Terrain* terrain5 = new Terrain("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(45.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain5 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(45.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain5);
     m_ColliderObjects.push_back(terrain5);
 
     //L-system like tree
-    Tree* tree = new Tree(4, 4, .6f, 10.0f * Vector3::Up, XM_PI / 6.0f, "JEMINA vase -up", m_d3dDevice.Get(), m_fxFactory);
-    m_GameObjects.push_back(tree);  
-    // todo: add to cmogo
+    //Tree* tree = new Tree(4, 4, .6f, 10.0f * Vector3::Up, XM_PI / 6.0f, "JEMINA vase -up", m_d3dDevice.Get(), m_fxFactory);
+    //m_GameObjects.push_back(tree);
+    //// todo: add to cmogo
 
-    //Vertex Buffer Game Objects
-    FileVBGO* terrainBox = new FileVBGO("terrainTex", m_d3dDevice.Get());
-    m_GameObjects.push_back(terrainBox);
+    ////Vertex Buffer Game Objects
+    //FileVBGO* terrainBox = new FileVBGO("terrainTex", m_d3dDevice.Get());
+    //m_GameObjects.push_back(terrainBox);
 
     //FileVBGO* Box = new FileVBGO("cube", m_d3dDevice.Get());
     //m_GameObjects.push_back(Box);
@@ -178,26 +178,28 @@ void Game::Initialize(HWND _window, int _width, int _height)
 
     for (size_t i = 0; i < 10; i++)
     {
-        Projectile* pProjectile = new Projectile("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+        pProjectile = std::make_shared<Projectile>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
         pProjectile->SetActive(false);
         m_GameObjects.push_back(pProjectile);
         m_PlayerProjectiles.push_back(pProjectile);
     }
 
     //add Player
-    Player* pPlayer = new Player("WomanUpdated", m_d3dDevice.Get(), m_fxFactory);
+    pPlayer = std::make_shared<Player>("WomanUpdated", m_d3dDevice.Get(), m_fxFactory);
     pPlayer->SetScale(0.1);
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
+
+    //FIX THIS
     pPlayer->projectiles = m_PlayerProjectiles;
 
     //create a FPS camera
-    m_FPScam = new FPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
+    m_FPScam = std::make_shared<FPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
     //m_cam->SetPos(Vector3(0.0f, 200.0f, 200.0f));
     m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
-    m_TPScam = new TPSCamera(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 30.0f, 15.0f));
+    m_TPScam = std::make_shared<TPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 30.0f, 15.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
@@ -252,21 +254,21 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(pGPGO);*/
 
     //create DrawData struct and populate its pointers
-    m_DD = new DrawData;
+    m_DD = make_shared<DrawData>();
     m_DD->m_pd3dImmediateContext = nullptr;
     m_DD->m_states = m_states;
-    m_DD->m_cam = m_FPScam;
-    m_DD->m_light = m_light;
+    m_DD->m_cam = m_FPScam.get();
+    m_DD->m_light = m_light.get();
 
     //example basic 2D stuff
-    ImageGO2D* logo = new ImageGO2D("logo_small", m_d3dDevice.Get());
+    std::shared_ptr<ImageGO2D> logo = std::make_shared<ImageGO2D>("logo_small", m_d3dDevice.Get());
     logo->SetPos(200.0f * Vector2::One);
     m_GameObjects2D.push_back(logo);
-    ImageGO2D* bug_test = new ImageGO2D("bug_test", m_d3dDevice.Get());
+    std::shared_ptr<ImageGO2D> bug_test = std::make_shared<ImageGO2D>("bug_test", m_d3dDevice.Get());
     bug_test->SetPos(300.0f * Vector2::One);
     m_GameObjects2D.push_back(bug_test);
 
-    TextGO2D* text = new TextGO2D("I DONE IT");
+    std::shared_ptr<TextGO2D> text = std::make_shared<TextGO2D>("I DONE IT");
     text->SetPos(Vector2(100, 10));
     text->SetColour(Color((float*)&Colors::Yellow));
     m_GameObjects2D.push_back(text);
@@ -311,7 +313,7 @@ void Game::Update(DX::StepTimer const& _timer)
         //update sounds playing
         for (list<Sound*>::iterator it = m_Sounds.begin(); it != m_Sounds.end(); it++)
         {
-            (*it)->Tick(m_GD);
+            (*it)->Tick(m_GD.get());
         }
     }
 
@@ -331,13 +333,13 @@ void Game::Update(DX::StepTimer const& _timer)
     }
 
     //update all objects
-    for (list<GameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
+    for (std::vector<std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
     {
-        (*it)->Tick(m_GD);
+        (*it)->Tick(m_GD.get());
     }
-    for (list<GameObject2D*>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
+    for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
     {
-        (*it)->Tick(m_GD);
+        (*it)->Tick(m_GD.get());
     }
 
     CheckCollision();
@@ -359,31 +361,31 @@ void Game::Render()
     m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
 
     //set which camera to be used
-    m_DD->m_cam = m_FPScam;
+    m_DD->m_cam = m_FPScam.get();
     if (m_GD->m_GS == GS_PLAY_TPS_CAM)
     {
-        m_DD->m_cam = m_TPScam;
+        m_DD->m_cam = m_TPScam.get();
     }
 
     //update the constant buffer for the rendering of VBGOs
-    VBGO::UpdateConstantBuffer(m_DD);
+    VBGO::UpdateConstantBuffer(m_DD.get());
 
     //Draw 3D Game Obejects
-    for (list<GameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
+    for (std::vector <std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
     {
         if ((*it)->IsActive())
         {
-            (*it)->Draw(m_DD);
+            (*it)->Draw(m_DD.get());
         }
     }
 
     // Draw sprite batch stuff 
     m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
-    for (list<GameObject2D*>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
+    for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
     {
         if ((*it)->IsActive())
         {
-            (*it)->Draw(m_DD2D);
+            (*it)->Draw(m_DD2D.get());
         }
     }
     m_DD2D->m_Sprites->End();
