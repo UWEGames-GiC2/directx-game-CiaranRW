@@ -60,6 +60,11 @@ public:
     // Properties
     void GetDefaultSize( int& _width, int& _height ) const noexcept;
 
+    enum GameState {
+        MainMenu,
+        GamePlay
+    };
+
 private:
 
     void Update(DX::StepTimer const& _timer);
@@ -131,4 +136,6 @@ private:
 	//See here: https://github.com/Microsoft/DirectXTK/wiki/Creating-and-playing-sounds Using wave banks Section
     std::unique_ptr<DirectX::AudioEngine> m_audioEngine;
     list<Sound*>m_Sounds;
+
+    GameState States;
 };

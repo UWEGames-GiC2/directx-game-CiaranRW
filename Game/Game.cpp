@@ -36,6 +36,7 @@ Game::Game() noexcept :
 // Initialize the Direct3D resources required to run.
 void Game::Initialize(HWND _window, int _width, int _height)
 {
+    States = MainMenu;
     m_window = _window;
     m_outputWidth = std::max(_width, 1);
     m_outputHeight = std::max(_height, 1);
@@ -332,6 +333,11 @@ void Game::Update(DX::StepTimer const& _timer)
         }
     }
 
+    if (m_GD->m_KBS_tracker.pressed.Enter)
+    {
+        States = GamePlay;
+    }
+
     //update all objects
     for (std::vector<std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
     {
@@ -348,52 +354,55 @@ void Game::Update(DX::StepTimer const& _timer)
 
 // Draws the scene.
 void Game::Render()
-{
-    // Don't try to render anything before the first Update.
-    if (m_timer.GetFrameCount() == 0)
     {
-        return;
-    }
-
-    Clear();
-    
-    //set immediate context of the graphics device
-    m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
-
-    //set which camera to be used
-    m_DD->m_cam = m_FPScam.get();
-    if (m_GD->m_GS == GS_PLAY_TPS_CAM)
+    if (States == GamePlay)
     {
-        m_DD->m_cam = m_TPScam.get();
-    }
-
-    //update the constant buffer for the rendering of VBGOs
-    VBGO::UpdateConstantBuffer(m_DD.get());
-
-    //Draw 3D Game Obejects
-    for (std::vector <std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
-    {
-        if ((*it)->IsActive())
+        // Don't try to render anything before the first Update.
+        if (m_timer.GetFrameCount() == 0)
         {
-            (*it)->Draw(m_DD.get());
+            return;
         }
-    }
 
-    // Draw sprite batch stuff 
-    m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
-    for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
-    {
-        if ((*it)->IsActive())
+        Clear();
+
+        //set immediate context of the graphics device
+        m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
+
+        //set which camera to be used
+        m_DD->m_cam = m_FPScam.get();
+        if (m_GD->m_GS == GS_PLAY_TPS_CAM)
         {
-            (*it)->Draw(m_DD2D.get());
+            m_DD->m_cam = m_TPScam.get();
         }
+
+        //update the constant buffer for the rendering of VBGOs
+        VBGO::UpdateConstantBuffer(m_DD.get());
+
+        //Draw 3D Game Obejects
+        for (std::vector <std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
+        {
+            if ((*it)->IsActive())
+            {
+                (*it)->Draw(m_DD.get());
+            }
+        }
+
+        // Draw sprite batch stuff 
+        m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
+        for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
+        {
+            if ((*it)->IsActive())
+            {
+                (*it)->Draw(m_DD2D.get());
+            }
+        }
+        m_DD2D->m_Sprites->End();
+
+        //drawing text screws up the Depth Stencil State, this puts it back again!
+        m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
+
+        Present();
     }
-    m_DD2D->m_Sprites->End();
-
-    //drawing text screws up the Depth Stencil State, this puts it back again!
-    m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
-
-    Present();
 }
 
 // Helper method to clear the back buffers.
