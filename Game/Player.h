@@ -17,7 +17,9 @@ public:
 
 	std::vector<std::shared_ptr<CMOGO>> projectiles;
 
+
 protected:
+	float gravity = 1000.0;
 
 };
 

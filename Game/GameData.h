@@ -20,5 +20,8 @@ struct GameData
 	Keyboard::State m_KBS;
 	Mouse::State m_MS;
 	Keyboard::KeyboardStateTracker m_KBS_tracker;
+	
+	bool gravity_on;
+	bool m_can_jump;
 };
 #endif

@@ -12,11 +12,13 @@ Player::Player(string _fileName, ID3D11Device* _pd3dDevice, IEffectFactory* _EF)
 
 	SetDrag(0.7);
 	SetPhysicsOn(true);
+
 }
 
 Player::~Player()
 {
 	//tidy up anything I've created
+
 }
 
 
@@ -113,6 +115,11 @@ void Player::Tick(GameData* _GD)
 		m_pos.Normalize();
 		m_pos *= maxLength;
 		m_vel *= -0.9; //VERY simple bounce back
+	}
+
+	if (_GD->gravity_on)
+	{
+		m_acc.y -= gravity * _GD->m_dt;
 	}
 
 	//apply my base behaviour

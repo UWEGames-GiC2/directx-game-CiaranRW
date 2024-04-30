@@ -106,15 +106,15 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(terrain2);
     m_ColliderObjects.push_back(terrain2);
 
-    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 10.0f, 100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -5.0f, 0.0f), 1.6f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain3);
     m_ColliderObjects.push_back(terrain3);
 
-    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(145.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 0.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain4);
     m_ColliderObjects.push_back(terrain4);
 
-    std::shared_ptr<Terrain> terrain5 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(45.0f, 10.0f, 55.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain5 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 0.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain5);
     m_ColliderObjects.push_back(terrain5);
 
@@ -200,7 +200,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
-    m_TPScam = std::make_shared<TPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 30.0f, 15.0f));
+    m_TPScam = std::make_shared<TPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 20.0f, 15.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
@@ -262,17 +262,20 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_DD->m_light = m_light.get();
 
     //example basic 2D stuff
-    std::shared_ptr<ImageGO2D> logo = std::make_shared<ImageGO2D>("logo_small", m_d3dDevice.Get());
-    logo->SetPos(200.0f * Vector2::One);
-    m_GameObjects2D.push_back(logo);
-    std::shared_ptr<ImageGO2D> bug_test = std::make_shared<ImageGO2D>("bug_test", m_d3dDevice.Get());
-    bug_test->SetPos(300.0f * Vector2::One);
-    m_GameObjects2D.push_back(bug_test);
+    if (States == MainMenu)
+    {
+        std::shared_ptr<ImageGO2D> logo = std::make_shared<ImageGO2D>("logo_small", m_d3dDevice.Get());
+        logo->SetPos(100.0f * Vector2::One);
+        m_GameObjects2D.push_back(logo);
+        std::shared_ptr<ImageGO2D> bug_test = std::make_shared<ImageGO2D>("bug_test", m_d3dDevice.Get());
+        bug_test->SetPos(100.0f * Vector2::One);
+        m_GameObjects2D.push_back(bug_test);
 
-    std::shared_ptr<TextGO2D> text = std::make_shared<TextGO2D>("I DONE IT");
-    text->SetPos(Vector2(100, 10));
-    text->SetColour(Color((float*)&Colors::Yellow));
-    m_GameObjects2D.push_back(text);
+        std::shared_ptr<TextGO2D> text = std::make_shared<TextGO2D>("Main Menu");
+        text->SetPos(Vector2(250, 50));
+        text->SetColour(Color((float*)&Colors::Yellow));
+        m_GameObjects2D.push_back(text);
+    }
 
     //Test Sounds SOUNDS HORRIBLE
     //Loop* loop = new Loop(m_audioEngine.get(), "NightAmbienceSimple_02");
@@ -354,31 +357,31 @@ void Game::Update(DX::StepTimer const& _timer)
 
 // Draws the scene.
 void Game::Render()
+{
+    // Don't try to render anything before the first Update.
+    if (m_timer.GetFrameCount() == 0)
     {
+        return;
+    }
+
+    Clear();
+
+    //set immediate context of the graphics device
+    m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
+
+    //set which camera to be used
+    m_DD->m_cam = m_FPScam.get();
+    if (m_GD->m_GS == GS_PLAY_TPS_CAM)
+    {
+        m_DD->m_cam = m_TPScam.get();
+    }
+
+    //update the constant buffer for the rendering of VBGOs
+    VBGO::UpdateConstantBuffer(m_DD.get());
+
+    //Draw 3D Game Obejects
     if (States == GamePlay)
     {
-        // Don't try to render anything before the first Update.
-        if (m_timer.GetFrameCount() == 0)
-        {
-            return;
-        }
-
-        Clear();
-
-        //set immediate context of the graphics device
-        m_DD->m_pd3dImmediateContext = m_d3dContext.Get();
-
-        //set which camera to be used
-        m_DD->m_cam = m_FPScam.get();
-        if (m_GD->m_GS == GS_PLAY_TPS_CAM)
-        {
-            m_DD->m_cam = m_TPScam.get();
-        }
-
-        //update the constant buffer for the rendering of VBGOs
-        VBGO::UpdateConstantBuffer(m_DD.get());
-
-        //Draw 3D Game Obejects
         for (std::vector <std::shared_ptr<GameObject>>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
         {
             if ((*it)->IsActive())
@@ -386,23 +389,25 @@ void Game::Render()
                 (*it)->Draw(m_DD.get());
             }
         }
-
-        // Draw sprite batch stuff 
-        m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
-        for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
-        {
-            if ((*it)->IsActive())
-            {
-                (*it)->Draw(m_DD2D.get());
-            }
-        }
-        m_DD2D->m_Sprites->End();
-
-        //drawing text screws up the Depth Stencil State, this puts it back again!
-        m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
-
-        Present();
     }
+
+   
+
+    // Draw sprite batch stuff 
+    m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
+    for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
+    {
+        if ((*it)->IsActive())
+        {
+            (*it)->Draw(m_DD2D.get());
+        }
+    }
+    m_DD2D->m_Sprites->End();
+
+    //drawing text screws up the Depth Stencil State, this puts it back again!
+    m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
+
+    Present();
 }
 
 // Helper method to clear the back buffers.
@@ -679,6 +684,7 @@ void Game::ReadInput()
 
 void Game::CheckCollision()
 {
+    collision_count = 0;
     for (int i = 0; i < m_PhysicsObjects.size(); i++) for (int j = 0; j < m_ColliderObjects.size(); j++)
     {
         if (m_PhysicsObjects[i]->Intersects(*m_ColliderObjects[j])) //std::cout << "Collision Detected!" << std::endl;
@@ -686,7 +692,17 @@ void Game::CheckCollision()
             XMFLOAT3 eject_vect = Collision::ejectionCMOGO(*m_PhysicsObjects[i], *m_ColliderObjects[j]);
             auto pos = m_PhysicsObjects[i]->GetPos();
             m_PhysicsObjects[i]->SetPos(pos - eject_vect);
+            collision_count++;
         }
+    }
+    if (collision_count > 0)
+    {
+        m_GD->gravity_on = false;
+        m_GD->m_can_jump = true;
+    }
+    else
+    {
+        m_GD->gravity_on = true;
     }
 }
 

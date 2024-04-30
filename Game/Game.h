@@ -138,4 +138,6 @@ private:
     list<Sound*>m_Sounds;
 
     GameState States;
+
+    int collision_count;
 };
