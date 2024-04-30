@@ -304,6 +304,11 @@ void Game::Update(DX::StepTimer const& _timer)
     float elapsedTime = float(_timer.GetElapsedSeconds());
     m_GD->m_dt = elapsedTime;
 
+    if (m_GD->m_KBS.Enter)
+    {
+        States = GamePlay;
+    }
+
     //this will update the audio engine but give us chance to do somehting else if that isn't working
     if (!m_audioEngine->Update())
     {
@@ -324,7 +329,7 @@ void Game::Update(DX::StepTimer const& _timer)
     ReadInput();
     //upon space bar switch camera state
     //see docs here for what's going on: https://github.com/Microsoft/DirectXTK/wiki/Keyboard
-    if (m_GD->m_KBS_tracker.pressed.Space)
+    if (m_GD->m_KBS_tracker.pressed.C)
     {
         if (m_GD->m_GS == GS_PLAY_MAIN_CAM)
         {
@@ -334,11 +339,6 @@ void Game::Update(DX::StepTimer const& _timer)
         {
             m_GD->m_GS = GS_PLAY_MAIN_CAM;
         }
-    }
-
-    if (m_GD->m_KBS_tracker.pressed.Enter)
-    {
-        States = GamePlay;
     }
 
     //update all objects

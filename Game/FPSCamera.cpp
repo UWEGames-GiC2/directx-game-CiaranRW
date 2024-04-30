@@ -20,6 +20,7 @@ void FPSCamera::Tick(GameData* _GD)
 	Matrix rotCam = Matrix::CreateFromYawPitchRoll(m_targetObject->GetYaw(), 0.0f, 0.0f);
 	m_target = m_targetObject->GetPos();
 	m_pos = m_target + Vector3::Transform(m_dpos, rotCam);
+	
 
 	//and then set up proj and view matrices
 	Camera::Tick(_GD);

@@ -62,29 +62,26 @@ void Player::Tick(GameData* _GD)
 
 	//change orinetation of player
 	float rotSpeed = 2.0f * _GD->m_dt;
-	if (_GD->m_KBS.A)
+	if (_GD->m_MS.x)
 	{
-		m_yaw += rotSpeed;
+		m_yaw -= rotSpeed * _GD->m_MS.x;
 	}
-	if (_GD->m_KBS.D)
-	{
-		m_yaw -= rotSpeed;
-	}
+	//if (_GD->m_MS.y)
+	//{
+	//	m_pitch -= rotSpeed * _GD->m_MS.y;
+	//}
 
 	//move player up and down
-	if (_GD->m_KBS.R)
+	if (_GD->m_KBS.Space)
 	{
 		m_acc.y += 40.0f;
 	}
 
-	if (_GD->m_KBS.F)
-	{
-		m_acc.y -= 40.0f;
-	}
 	//WHERE PROJECTILES DONE
-	if (_GD->m_KBS_tracker.pressed.B)
+	//if (_GD->m_KBS_tracker.pressed.B)
+	if (_GD->m_MS.leftButton)
 	{	
-		printf("pressed B \n");
+		//printf("pressed B \n");
 		bool foundProjectile = false;
 		for (size_t i = 0; i < projectiles.size(); i++)
 		{
