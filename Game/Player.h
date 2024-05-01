@@ -19,7 +19,9 @@ public:
 
 
 protected:
-	float gravity = 1000.0;
+	float gravity = 800.0;
+	float speed = 200.0;
+	bool sprint = false;
 
 };
 

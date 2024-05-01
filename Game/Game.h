@@ -63,7 +63,9 @@ public:
 
     enum GameState {
         MainMenu,
-        GamePlay
+        GamePlay,
+        GameEnd,
+        GameWon
     };
 
 private:
@@ -132,6 +134,8 @@ private:
     void CheckCollision();
 
     void CheckProjectileCollision();
+
+    void Timer();
                                          
     //sound stuff
 	//This uses a simple system, but a better pipeline can be used using Wave Banks
@@ -142,4 +146,5 @@ private:
     GameState States;
 
     int collision_count;
+    float timer = 180;
 };

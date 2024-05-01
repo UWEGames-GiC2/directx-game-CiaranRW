@@ -25,5 +25,6 @@
     <MeshContentTask Include="Walls\Walls.fbx" />
     <MeshContentTask Include="WallsSmall\WallsSmall.fbx" />
     <MeshContentTask Include="Cube\Cube.fbx" />
+    <MeshContentTask Include="WallsSmallR\WallsSmallR.fbx" />
   </ItemGroup>
 </Project>

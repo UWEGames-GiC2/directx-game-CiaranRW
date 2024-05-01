@@ -8,7 +8,7 @@ Projectile::Projectile(string _fileName, ID3D11Device* _pd3dDevice, IEffectFacto
 	m_fudge = Matrix::CreateRotationY(XM_PI);
 
 	m_pos.y = 10.0f;
-	SetScale(Vector3::One * 0.2f);
+	SetScale(Vector3::One * 0.4f);
 	SetDrag(0.7);
 	SetPhysicsOn(true);
 }

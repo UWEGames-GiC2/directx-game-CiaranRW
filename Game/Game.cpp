@@ -106,26 +106,13 @@ void Game::Initialize(HWND _window, int _width, int _height)
     //m_GameObjects.push_back(terrain2);
     //m_ColliderObjects.push_back(terrain2);
 
-    std::shared_ptr<Terrain> floor = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(-250.0f, -30.0f, -250.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> floor = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -30.0f, -250.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(floor);
     m_ColliderObjects.push_back(floor);
 
-    std::shared_ptr<Terrain> terrain2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, 50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain2);
-    m_ColliderObjects.push_back(terrain2);
-
-    std::shared_ptr<Terrain> terrain1 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(50.0f, 0.0f, 0.0f), 0.0f, 1.57f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain1);
-    m_ColliderObjects.push_back(terrain1);
-
-    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain4);
-    m_ColliderObjects.push_back(terrain4);
-
-    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(50.0f, 0.0f, -100.0f), 0.0f, 1.57f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain3);
-    m_ColliderObjects.push_back(terrain3); 
-    
+    std::shared_ptr<Terrain> wall2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall2);
+    m_ColliderObjects.push_back(wall2);
 
 
     //L-system like tree
@@ -323,9 +310,13 @@ void Game::Update(DX::StepTimer const& _timer)
     {
         States = GamePlay;
     }
-    gCube->SetPos(pPlayer->GetPos());
+    gCube->SetPos(Vector3(pPlayer->GetPos().x,pPlayer->GetPos().y-10,pPlayer->GetPos().z));
     gCube->SetScale(0.01);
 
+    if (pPlayer->GetPos().y < -20)
+    {
+        pPlayer->SetPos(Vector3(0, 10, 0));
+    }
     
 
     //this will update the audio engine but give us chance to do somehting else if that isn't working
@@ -373,6 +364,25 @@ void Game::Update(DX::StepTimer const& _timer)
     
     CheckCollision();
     CheckProjectileCollision();
+    Timer();
+
+    if (States == GamePlay)
+    {
+        timer -= elapsedTime;
+    }
+
+    if (timer <= 0)
+    {
+        States = GameEnd;
+        m_GameObjects2D.clear();
+
+        std::shared_ptr<TextGO2D> GameOver = std::make_shared<TextGO2D>("GameOver");
+        GameOver->SetPos(Vector2(300, 50));
+        GameOver->SetColour(Color((float*)&Colors::Yellow));
+
+        m_GameObjects2D.push_back(GameOver);
+    }
+
 }
 
 // Draws the scene.
@@ -412,8 +422,8 @@ void Game::Render()
     }
 
    
-    if (States == MainMenu)
-    {
+  /*  if (States == MainMenu)
+    {*/
         // Draw sprite batch stuff 
         m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
         for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
@@ -423,11 +433,11 @@ void Game::Render()
                 (*it)->Draw(m_DD2D.get());
             }
         }
-        m_DD2D->m_Sprites->End();
+        m_DD2D->m_Sprites->End(); 
 
         //drawing text screws up the Depth Stencil State, this puts it back again!
         m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
-    }
+    //}
 
 
     Present();
@@ -439,7 +449,7 @@ void Game::Clear()
     // Clear the views.
     m_d3dContext->ClearRenderTargetView(m_renderTargetView.Get(), Colors::CornflowerBlue);
     m_d3dContext->ClearDepthStencilView(m_depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
-
+     
     m_d3dContext->OMSetRenderTargets(1, m_renderTargetView.GetAddressOf(), m_depthStencilView.Get());
 
     // Set the viewport.
@@ -742,4 +752,18 @@ void Game::CheckProjectileCollision()
             m_PlayerProjectiles[i]->SetActive(false);
         }
     }
+}
+
+void Game::Timer()
+{
+    std::shared_ptr<TextGO2D> test = std::make_shared<TextGO2D>("");
+    test->SetPos(Vector2(650, 50));
+    test->SetColour(Color((float*)&Colors::Yellow));
+
+    if (States == GamePlay)
+    {
+        m_GameObjects2D.clear();
+        test->SetText(std::to_string(timer));
+    }
+    m_GameObjects2D.push_back(test);
 }

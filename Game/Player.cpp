@@ -24,13 +24,26 @@ Player::~Player()
 
 void Player::Tick(GameData* _GD)
 {
+	if (_GD->m_KBS_tracker.pressed.LeftShift)
+	{
+		sprint = !sprint;
+	}
+	if (sprint)
+	{
+		speed = 100.0f;
+	}
+	if (!sprint)
+	{
+		speed = 30.0f;
+	}
+
 	switch (_GD->m_GS)
 	{
 	case GS_PLAY_MAIN_CAM:
 	{
 		//TURN AND FORWARD CONTROL HERE
-		Vector3 forwardMove = 40.0f * Vector3::Forward;
-		Vector3 sideMove = 40.0f * Vector3::Left;
+		Vector3 forwardMove = speed * Vector3::Forward;
+		Vector3 sideMove = 20.0f * Vector3::Left;
 		Matrix rotMove = Matrix::CreateRotationY(m_yaw);
 		forwardMove = Vector3::Transform(forwardMove, rotMove);
 		sideMove = Vector3::Transform(sideMove, rotMove);
@@ -55,8 +68,8 @@ void Player::Tick(GameData* _GD)
 	case GS_PLAY_TPS_CAM:
 	{
 		//TURN AND FORWARD CONTROL HERE
-		Vector3 forwardMove = 40.0f * Vector3::Forward;
-		Vector3 sideMove = 40.0f * Vector3::Left;
+		Vector3 forwardMove = speed * Vector3::Forward;
+		Vector3 sideMove = 20.0f * Vector3::Left;
 		Matrix rotMove = Matrix::CreateRotationY(m_yaw);
 		forwardMove = Vector3::Transform(forwardMove, rotMove);
 		sideMove = Vector3::Transform(sideMove, rotMove);
@@ -92,11 +105,11 @@ void Player::Tick(GameData* _GD)
 	//}
 
 	//move player up and down
-	if (_GD->m_KBS.Space)
+	if (_GD->m_KBS_tracker.pressed.Space)
 	{
 		if (_GD->m_can_jump)
 		{
-			m_acc.y += 800.0f;
+			m_acc.y += 2500.0f;
 		}
 	}
 
