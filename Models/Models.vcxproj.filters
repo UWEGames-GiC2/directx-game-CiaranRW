@@ -23,5 +23,7 @@
     <MeshContentTask Include="NotSource\StylisedWomanColoured.fbx" />
     <MeshContentTask Include="source\WomanUpdated.fbx" />
     <MeshContentTask Include="Walls\Walls.fbx" />
+    <MeshContentTask Include="WallsSmall\WallsSmall.fbx" />
+    <MeshContentTask Include="Cube\Cube.fbx" />
   </ItemGroup>
 </Project>

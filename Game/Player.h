@@ -19,7 +19,7 @@ public:
 
 
 protected:
-	float gravity = 500.0;
+	float gravity = 1000.0;
 
 };
 

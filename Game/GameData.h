@@ -19,6 +19,7 @@ struct GameData
 	//player input
 	Keyboard::State m_KBS;
 	Mouse::State m_MS;
+	Mouse::ButtonStateTracker m_MS_tracker;
 	Keyboard::KeyboardStateTracker m_KBS_tracker;
 	
 	bool gravity_on;

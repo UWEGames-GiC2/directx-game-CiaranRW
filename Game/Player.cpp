@@ -30,8 +30,10 @@ void Player::Tick(GameData* _GD)
 	{
 		//TURN AND FORWARD CONTROL HERE
 		Vector3 forwardMove = 40.0f * Vector3::Forward;
+		Vector3 sideMove = 40.0f * Vector3::Left;
 		Matrix rotMove = Matrix::CreateRotationY(m_yaw);
 		forwardMove = Vector3::Transform(forwardMove, rotMove);
+		sideMove = Vector3::Transform(sideMove, rotMove);
 		if (_GD->m_KBS.W)
 		{
 			m_acc += forwardMove;
@@ -39,6 +41,14 @@ void Player::Tick(GameData* _GD)
 		if (_GD->m_KBS.S)
 		{
 			m_acc -= forwardMove;
+		}
+		if (_GD->m_KBS.A)
+		{
+			m_acc += sideMove;
+		}
+		if (_GD->m_KBS.D)
+		{
+			m_acc -= sideMove;
 		}
 		break;
 	}
@@ -46,8 +56,10 @@ void Player::Tick(GameData* _GD)
 	{
 		//TURN AND FORWARD CONTROL HERE
 		Vector3 forwardMove = 40.0f * Vector3::Forward;
+		Vector3 sideMove = 40.0f * Vector3::Left;
 		Matrix rotMove = Matrix::CreateRotationY(m_yaw);
 		forwardMove = Vector3::Transform(forwardMove, rotMove);
+		sideMove = Vector3::Transform(sideMove, rotMove);
 		if (_GD->m_KBS.W)
 		{
 			m_acc += forwardMove;
@@ -55,6 +67,14 @@ void Player::Tick(GameData* _GD)
 		if (_GD->m_KBS.S)
 		{
 			m_acc -= forwardMove;
+		}
+		if (_GD->m_KBS.A)
+		{
+			m_acc += sideMove;
+		}
+		if (_GD->m_KBS.D)
+		{
+			m_acc -= sideMove;
 		}
 		break;
 	}
@@ -74,35 +94,37 @@ void Player::Tick(GameData* _GD)
 	//move player up and down
 	if (_GD->m_KBS.Space)
 	{
-		m_acc.y += 40.0f;
+		if (_GD->m_can_jump)
+		{
+			m_acc.y += 800.0f;
+		}
 	}
 
 	//WHERE PROJECTILES DONE
 	//if (_GD->m_KBS_tracker.pressed.B)
-	if (_GD->m_MS.leftButton)
-	{	
-		//printf("pressed B \n");
-		bool foundProjectile = false;
-		for (size_t i = 0; i < projectiles.size(); i++)
-		{
-			if (!projectiles[i]->IsActive())
-			{
-				printf("Found usable projectile\n");
-				Vector3 forwardMove = 40.0f * Vector3::Forward;
-				Matrix rotMove = Matrix::CreateRotationY(m_yaw);
-				forwardMove = Vector3::Transform(forwardMove, rotMove);
-				projectiles[i]->SetPos(this->GetPos());
-				projectiles[i]->SetActive(true);
-				projectiles[i]->SetYaw(this->GetYaw());
-				projectiles[i]->SetDrag(0.01f);
-				projectiles[i]->SetPhysicsOn(true);
-				projectiles[i]->SetAcceleration(forwardMove * 100.0f);
-
-
-				break;
-			}
-		}
-	}
+	//if (_GD->m_MS.leftButton)
+	//{	
+	//	//printf("pressed B \n");
+	//	bool foundProjectile = false;
+	//	for (size_t i = 0; i < projectiles.size(); i++)
+	//	{
+	//		if (!projectiles[i]->IsActive())
+	//		{
+	//			printf("Found usable projectile\n");
+	//			Vector3 forwardMove = 40.0f * Vector3::Forward;
+	//			Matrix rotMove = Matrix::CreateRotationY(m_yaw) * Matrix::CreateRotationX(m_pitch);
+	//			forwardMove = Vector3::Transform(forwardMove, rotMove);
+	//			projectiles[i]->SetPos(this->GetPos());
+	//			projectiles[i]->SetActive(true);
+	//			projectiles[i]->SetYaw(this->GetYaw());
+	//			projectiles[i]->SetPitch(this->GetPitch());
+	//			projectiles[i]->SetDrag(0.01f);
+	//			projectiles[i]->SetPhysicsOn(true);
+	//			projectiles[i]->SetAcceleration(forwardMove * 100.0f);
+	//			break;
+	//		}
+	//	}
+	//}
 
 	//limit motion of the player
 	float length = m_pos.Length();

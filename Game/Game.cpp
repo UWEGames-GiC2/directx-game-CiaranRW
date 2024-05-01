@@ -98,25 +98,35 @@ void Game::Initialize(HWND _window, int _width, int _height)
     float AR = (float)_width / (float)_height;
 
     //example basic 3D stuff
-    std::shared_ptr<Terrain> terrain = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 0.0f, 100.0f), 0.0f, 0.0f, 0.0f, 0.25f * Vector3::One);
-    m_GameObjects.push_back(terrain);
-    m_ColliderObjects.push_back(terrain);
+    //std::shared_ptr<Terrain> terrain = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(100.0f, 0.0f, 100.0f), 0.0f, 0.0f, 0.0f, 0.25f * Vector3::One);
+    //m_GameObjects.push_back(terrain);
+    //m_ColliderObjects.push_back(terrain);
 
-    std::shared_ptr<Terrain> terrain2 = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, -100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    //std::shared_ptr<Terrain> terrain2 = std::make_shared<Terrain>("table", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, -100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    //m_GameObjects.push_back(terrain2);
+    //m_ColliderObjects.push_back(terrain2);
+
+    std::shared_ptr<Terrain> floor = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(-250.0f, -30.0f, -250.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(floor);
+    m_ColliderObjects.push_back(floor);
+
+    std::shared_ptr<Terrain> terrain2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(-100.0f, 0.0f, 50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain2);
     m_ColliderObjects.push_back(terrain2);
 
-    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -5.0f, 0.0f), 1.6f, 0.0f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain3);
-    m_ColliderObjects.push_back(terrain3);
+    std::shared_ptr<Terrain> terrain1 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(50.0f, 0.0f, 0.0f), 0.0f, 1.57f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(terrain1);
+    m_ColliderObjects.push_back(terrain1);
 
-    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 0.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> terrain4 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(terrain4);
     m_ColliderObjects.push_back(terrain4);
 
-    std::shared_ptr<Terrain> terrain5 = std::make_shared<Terrain>("Walls", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, 0.0f, 0.0f), 0.0f, 1.6f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(terrain5);
-    m_ColliderObjects.push_back(terrain5);
+    std::shared_ptr<Terrain> terrain3 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(50.0f, 0.0f, -100.0f), 0.0f, 1.57f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(terrain3);
+    m_ColliderObjects.push_back(terrain3); 
+    
+
 
     //L-system like tree
     //Tree* tree = new Tree(4, 4, .6f, 10.0f * Vector3::Up, XM_PI / 6.0f, "JEMINA vase -up", m_d3dDevice.Get(), m_fxFactory);
@@ -191,16 +201,21 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(pPlayer);
     m_PhysicsObjects.push_back(pPlayer);
 
+    gCube = std::make_shared<InteractableCube>("Cube", m_d3dDevice.Get(), m_fxFactory);
+    m_GameObjects.push_back(gCube);
+    //m_PhysicsObjects.push_back(gCube);
+    //m_ColliderObjects.push_back(gCube);
+
     //FIX THIS
-    pPlayer->projectiles = m_PlayerProjectiles;
+    gCube->projectiles = m_PlayerProjectiles;
 
     //create a FPS camera
-    m_FPScam = std::make_shared<FPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
+    m_FPScam = std::make_shared<FPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, gCube, Vector3::UnitY, Vector3(0.0f, 0.0f, 0.1f));
     //m_cam->SetPos(Vector3(0.0f, 200.0f, 200.0f));
     m_GameObjects.push_back(m_FPScam);
 
     //add a secondary camera
-    m_TPScam = std::make_shared<TPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, pPlayer, Vector3::UnitY, Vector3(0.0f, 20.0f, 15.0f));
+    m_TPScam = std::make_shared<TPSCamera>(0.25f * XM_PI, AR, 1.0f, 1000.0f, gCube, Vector3::UnitY, Vector3(0.0f, 20.0f, 15.0f));
     m_GameObjects.push_back(m_TPScam);
 
     //test all GPGOs
@@ -308,6 +323,10 @@ void Game::Update(DX::StepTimer const& _timer)
     {
         States = GamePlay;
     }
+    gCube->SetPos(pPlayer->GetPos());
+    gCube->SetScale(0.01);
+
+    
 
     //this will update the audio engine but give us chance to do somehting else if that isn't working
     if (!m_audioEngine->Update())
@@ -351,6 +370,7 @@ void Game::Update(DX::StepTimer const& _timer)
         (*it)->Tick(m_GD.get());
     }
 
+    
     CheckCollision();
     CheckProjectileCollision();
 }
@@ -392,20 +412,23 @@ void Game::Render()
     }
 
    
-
-    // Draw sprite batch stuff 
-    m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
-    for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
+    if (States == MainMenu)
     {
-        if ((*it)->IsActive())
+        // Draw sprite batch stuff 
+        m_DD2D->m_Sprites->Begin(SpriteSortMode_Deferred, m_states->NonPremultiplied());
+        for (std::vector <std::shared_ptr<GameObject2D>>::iterator it = m_GameObjects2D.begin(); it != m_GameObjects2D.end(); it++)
         {
-            (*it)->Draw(m_DD2D.get());
+            if ((*it)->IsActive())
+            {
+                (*it)->Draw(m_DD2D.get());
+            }
         }
-    }
-    m_DD2D->m_Sprites->End();
+        m_DD2D->m_Sprites->End();
 
-    //drawing text screws up the Depth Stencil State, this puts it back again!
-    m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
+        //drawing text screws up the Depth Stencil State, this puts it back again!
+        m_d3dContext->OMSetDepthStencilState(m_states->DepthDefault(), 0);
+    }
+
 
     Present();
 }
@@ -675,6 +698,7 @@ void Game::ReadInput()
     }
 
     m_GD->m_MS = m_mouse->GetState();
+    m_GD->m_MS_tracker.Update(m_GD->m_MS);
 
     //lock the cursor to the centre of the window
     RECT window;
@@ -687,7 +711,7 @@ void Game::CheckCollision()
     collision_count = 0;
     for (int i = 0; i < m_PhysicsObjects.size(); i++) for (int j = 0; j < m_ColliderObjects.size(); j++)
     {
-        if (m_PhysicsObjects[i]->Intersects(*m_ColliderObjects[j])) //std::cout << "Collision Detected!" << std::endl;
+        if (m_PhysicsObjects[i]->Intersects(*m_ColliderObjects[j])) //std::cout << "Collision Detected!"s << std::endl;
         {
             XMFLOAT3 eject_vect = Collision::ejectionCMOGO(*m_PhysicsObjects[i], *m_ColliderObjects[j]);
             auto pos = m_PhysicsObjects[i]->GetPos();
@@ -699,10 +723,12 @@ void Game::CheckCollision()
     {
         m_GD->gravity_on = false;
         m_GD->m_can_jump = true;
+        //std::cout << collision_count;
     }
-    else
+    else if(collision_count == 0)
     {
         m_GD->gravity_on = true;
+        m_GD->m_can_jump = false;
     }
 }
 

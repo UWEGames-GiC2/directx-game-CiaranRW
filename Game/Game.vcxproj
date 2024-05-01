@@ -180,6 +180,7 @@
     <ClInclude Include="GPGO.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ImageGO2D.h" />
+    <ClInclude Include="InteractableCube.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="MarchCubes.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="GameObject2D.cpp" />
     <ClCompile Include="GPGO.cpp" />
     <ClCompile Include="ImageGO2D.cpp" />
+    <ClCompile Include="InteractableCube.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="Loop.cpp" />
     <ClCompile Include="MarchCubes.cpp" />

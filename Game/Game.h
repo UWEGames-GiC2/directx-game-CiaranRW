@@ -14,6 +14,7 @@
 #include "CMOGO.h"
 #include "Projectile.h"
 #include "Player.h"
+#include "InteractableCube.h"
 
 using std::list;
 
@@ -104,6 +105,7 @@ private:
     std::shared_ptr<TPSCamera> m_TPScam = nullptr;//TPS cam
     std::shared_ptr<Light> m_light = nullptr; //base light
     std::shared_ptr<Player> pPlayer = nullptr;
+    std::shared_ptr<InteractableCube> gCube = nullptr;
     std::shared_ptr<Projectile> pProjectile = nullptr;
 
     //required for the CMO model rendering system
