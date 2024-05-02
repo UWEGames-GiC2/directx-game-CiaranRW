@@ -30,7 +30,7 @@ void Player::Tick(GameData* _GD)
 	}
 	if (sprint)
 	{
-		speed = 100.0f;
+		speed = 60.0f;
 	}
 	if (!sprint)
 	{

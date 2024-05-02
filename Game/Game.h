@@ -146,5 +146,5 @@ private:
     GameState States;
 
     int collision_count;
-    float timer = 180;
+    float timer = 120;
 };

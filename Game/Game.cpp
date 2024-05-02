@@ -317,6 +317,11 @@ void Game::Update(DX::StepTimer const& _timer)
     {
         pPlayer->SetPos(Vector3(0, 10, 0));
     }
+
+    if (pPlayer->GetPos().z < -400)
+    {
+        States = GameWon;
+    }
     
 
     //this will update the audio engine but give us chance to do somehting else if that isn't working
@@ -376,11 +381,21 @@ void Game::Update(DX::StepTimer const& _timer)
         States = GameEnd;
         m_GameObjects2D.clear();
 
-        std::shared_ptr<TextGO2D> GameOver = std::make_shared<TextGO2D>("GameOver");
+        std::shared_ptr<TextGO2D> GameOver = std::make_shared<TextGO2D>("Game Over");
         GameOver->SetPos(Vector2(300, 50));
         GameOver->SetColour(Color((float*)&Colors::Yellow));
 
         m_GameObjects2D.push_back(GameOver);
+    }
+
+    if (States == GameWon)
+    {
+
+        std::shared_ptr<TextGO2D> GameWin = std::make_shared<TextGO2D>("Game Won");
+        GameWin->SetPos(Vector2(300, 50));
+        GameWin->SetColour(Color((float*)&Colors::Yellow));
+
+        m_GameObjects2D.push_back(GameWin);
     }
 
 }

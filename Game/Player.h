@@ -20,7 +20,7 @@ public:
 
 protected:
 	float gravity = 800.0;
-	float speed = 200.0;
+	float speed = 0;
 	bool sprint = false;
 
 };
