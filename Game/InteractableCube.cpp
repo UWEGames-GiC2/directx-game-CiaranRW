@@ -32,13 +32,12 @@ void InteractableCube::Tick(GameData* _GD)
 		m_pitch -= rotSpeed * _GD->m_MS.y;
 	}
 
-	if (_GD->m_MS_tracker.leftButton)
+	if (_GD->m_MS_tracker.leftButton && CanShoot)
 	{
 		//printf("pressed B \n");
 		bool foundProjectile = false;
 		for (size_t i = 0; i < projectiles.size(); i++)
 		{
-			
 			if (!projectiles[i]->IsActive())
 			{
 				//printf("Found usable projectile\n");
@@ -54,6 +53,18 @@ void InteractableCube::Tick(GameData* _GD)
 				projectiles[i]->SetAcceleration(forwardMove * 100.0f);
 				break;
 			}
+			CanShoot = false;
+		}
+	}
+
+	if (CanShoot == false)
+	{
+		ShootTimer += 1 * _GD->m_dt;
+
+		if (ShootTimer >= 2)
+		{
+			CanShoot = true;
+			ShootTimer = 0;
 		}
 	}
 

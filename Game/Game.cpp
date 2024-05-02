@@ -118,9 +118,9 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(wall2);
     m_ColliderObjects.push_back(wall2);
 
-    std::shared_ptr<Terrain> wall2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -150.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
-    m_GameObjects.push_back(wall2);
-    m_ColliderObjects.push_back(wall2);
+    std::shared_ptr<Terrain> wall3 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -150.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall3);
+    m_ColliderObjects.push_back(wall3);
 
 
     //L-system like tree

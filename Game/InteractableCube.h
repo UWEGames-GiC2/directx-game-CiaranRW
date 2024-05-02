@@ -13,6 +13,7 @@ public:
 	std::vector<std::shared_ptr<CMOGO>> projectiles;
 
 protected:
-
+	float ShootTimer = 0.0f;
+	bool CanShoot = true;
 	
 };
