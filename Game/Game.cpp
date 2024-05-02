@@ -110,7 +110,15 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(floor);
     m_ColliderObjects.push_back(floor);
 
-    std::shared_ptr<Terrain> wall2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    std::shared_ptr<Terrain> wall1 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -50.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall1);
+    m_ColliderObjects.push_back(wall1);
+
+    std::shared_ptr<Terrain> wall2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -100.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall2);
+    m_ColliderObjects.push_back(wall2);
+
+    std::shared_ptr<Terrain> wall2 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -150.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
     m_GameObjects.push_back(wall2);
     m_ColliderObjects.push_back(wall2);
 
@@ -174,7 +182,7 @@ void Game::Initialize(HWND _window, int _width, int _height)
     //m_GameObjects.push_back(VBMC);
 
 
-    for (size_t i = 0; i < 10; i++)
+    for (size_t i = 0; i < 5; i++)
     {
         pProjectile = std::make_shared<Projectile>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
         pProjectile->SetActive(false);
@@ -269,9 +277,6 @@ void Game::Initialize(HWND _window, int _width, int _height)
         std::shared_ptr<ImageGO2D> logo = std::make_shared<ImageGO2D>("logo_small", m_d3dDevice.Get());
         logo->SetPos(100.0f * Vector2::One);
         m_GameObjects2D.push_back(logo);
-        std::shared_ptr<ImageGO2D> bug_test = std::make_shared<ImageGO2D>("bug_test", m_d3dDevice.Get());
-        bug_test->SetPos(100.0f * Vector2::One);
-        m_GameObjects2D.push_back(bug_test);
 
         std::shared_ptr<TextGO2D> text = std::make_shared<TextGO2D>("Main Menu");
         text->SetPos(Vector2(250, 50));
