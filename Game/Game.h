@@ -15,6 +15,7 @@
 #include "Projectile.h"
 #include "Player.h"
 #include "InteractableCube.h"
+#include "Enemy.h"
 
 using std::list;
 
@@ -109,6 +110,7 @@ private:
     std::shared_ptr<Player> pPlayer = nullptr;
     std::shared_ptr<InteractableCube> gCube = nullptr;
     std::shared_ptr<Projectile> pProjectile = nullptr;
+    std::shared_ptr<Enemy> pEnemy = nullptr;
 
     //required for the CMO model rendering system
     DirectX::CommonStates* m_states = NULL;
@@ -127,6 +129,7 @@ private:
 
     std::vector<std::shared_ptr<CMOGO>> m_ColliderObjects;
     std::vector<std::shared_ptr<CMOGO>> m_PhysicsObjects;
+    std::vector<std::shared_ptr<CMOGO>> m_BreakableObjects;
 
     std::vector<std::shared_ptr<CMOGO>> m_PlayerProjectiles;
     std::vector<std::shared_ptr<Projectile>> m_Projectile;
@@ -146,5 +149,6 @@ private:
     GameState States;
 
     int collision_count;
-    float timer = 120;
+    float timer = 90;
+    int score = 0;
 };

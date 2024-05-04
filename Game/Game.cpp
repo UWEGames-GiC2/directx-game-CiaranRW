@@ -122,6 +122,14 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(wall3);
     m_ColliderObjects.push_back(wall3);
 
+    std::shared_ptr<Terrain> wall4 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -2.0f, -200.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall4);
+    m_ColliderObjects.push_back(wall4);
+
+    std::shared_ptr<Terrain> wall5 = std::make_shared<Terrain>("WallsSmall", m_d3dDevice.Get(), m_fxFactory, Vector3(0.0f, -7.0f, -250.0f), 0.0f, 0.0f, 0.0f, Vector3::One);
+    m_GameObjects.push_back(wall5);
+    m_ColliderObjects.push_back(wall5);
+
 
     //L-system like tree
     //Tree* tree = new Tree(4, 4, .6f, 10.0f * Vector3::Up, XM_PI / 6.0f, "JEMINA vase -up", m_d3dDevice.Get(), m_fxFactory);
@@ -200,6 +208,31 @@ void Game::Initialize(HWND _window, int _width, int _height)
     m_GameObjects.push_back(gCube);
     //m_PhysicsObjects.push_back(gCube);
     //m_ColliderObjects.push_back(gCube);
+
+    pEnemy = std::make_shared<Enemy>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    m_BreakableObjects.push_back(pEnemy);
+    m_GameObjects.push_back(pEnemy);
+    pEnemy->SetPos(Vector3(0, 10, -100));
+
+    std::shared_ptr<Enemy> pEnemy2 = std::make_shared<Enemy>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    m_BreakableObjects.push_back(pEnemy2);
+    m_GameObjects.push_back(pEnemy2);
+    pEnemy2->SetPos(Vector3(0.0f, 17.0f, -250.0f));
+
+    std::shared_ptr<Enemy> pEnemy3 = std::make_shared<Enemy>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    m_BreakableObjects.push_back(pEnemy3);
+    m_GameObjects.push_back(pEnemy3);
+    pEnemy3->SetPos(Vector3(20.0f, 17.0f, -2000.0f));
+
+    std::shared_ptr<Enemy> pEnemy4 = std::make_shared<Enemy>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    m_BreakableObjects.push_back(pEnemy4);
+    m_GameObjects.push_back(pEnemy4);
+    pEnemy4->SetPos(Vector3(-20.0f, 17.0f, -300.0f));
+
+    std::shared_ptr<Enemy> pEnemy5 = std::make_shared<Enemy>("BirdModelV1", m_d3dDevice.Get(), m_fxFactory);
+    m_BreakableObjects.push_back(pEnemy5);
+    m_GameObjects.push_back(pEnemy5);
+    pEnemy5->SetPos(Vector3(20.0f, 15.0f, -350.0f));
 
     //FIX THIS
     gCube->projectiles = m_PlayerProjectiles;
@@ -282,6 +315,17 @@ void Game::Initialize(HWND _window, int _width, int _height)
         text->SetPos(Vector2(250, 50));
         text->SetColour(Color((float*)&Colors::Yellow));
         m_GameObjects2D.push_back(text);
+
+        std::shared_ptr<TextGO2D> text2 = std::make_shared<TextGO2D>("Get to the End!");
+        text2->SetPos(Vector2(250, 200));
+        text2->SetColour(Color((float*)&Colors::Yellow));
+        m_GameObjects2D.push_back(text2);
+
+        std::shared_ptr<TextGO2D> text3 = std::make_shared<TextGO2D>("Press Enter to Start");
+        text3->SetPos(Vector2(220, 500));
+        text3->SetColour(Color((float*)&Colors::Yellow));
+        m_GameObjects2D.push_back(text3);
+
     }
 
     //Test Sounds SOUNDS HORRIBLE
@@ -379,6 +423,11 @@ void Game::Update(DX::StepTimer const& _timer)
     if (States == GamePlay)
     {
         timer -= elapsedTime;
+        //broke
+        //if (pEnemy->GetPos() != pPlayer->GetPos())
+        //{
+        //    pEnemy->SetPos(((pPlayer->GetPos() - pEnemy->GetPos()) / 100000) * m_GD->m_dt);
+        //}
     }
 
     if (timer <= 0)
@@ -401,6 +450,12 @@ void Game::Update(DX::StepTimer const& _timer)
         GameWin->SetColour(Color((float*)&Colors::Yellow));
 
         m_GameObjects2D.push_back(GameWin);
+
+        std::shared_ptr<TextGO2D> ScoreText = std::make_shared<TextGO2D>("Score:" + std::to_string(score));
+        ScoreText->SetPos(Vector2(300, 350));
+        ScoreText->SetColour(Color((float*)&Colors::Yellow));
+
+        m_GameObjects2D.push_back(ScoreText);
     }
 
 }
@@ -764,12 +819,14 @@ void Game::CheckCollision()
 
 void Game::CheckProjectileCollision()
 {
-    for (int i = 0; i < m_PlayerProjectiles.size(); i++) for (int j = 0; j < m_ColliderObjects.size(); j++)
+    for (int i = 0; i < m_PlayerProjectiles.size(); i++) for (int j = 0; j < m_BreakableObjects.size(); j++)
     {
-        if (m_PlayerProjectiles[i]->IsActive() && m_PlayerProjectiles[i]->Intersects(*m_ColliderObjects[j]))
+        if (m_PlayerProjectiles[i]->IsActive() && m_PlayerProjectiles[i]->Intersects(*m_BreakableObjects[j]))
         {
             std::cout << "Projectile collision!" << std::endl;
             m_PlayerProjectiles[i]->SetActive(false);
+            m_BreakableObjects[j]->SetActive(false);
+            score += 1;
         }
     }
 }
@@ -780,10 +837,16 @@ void Game::Timer()
     test->SetPos(Vector2(650, 50));
     test->SetColour(Color((float*)&Colors::Yellow));
 
+    std::shared_ptr<TextGO2D> scoretext = std::make_shared<TextGO2D>("");
+    scoretext->SetPos(Vector2(100, 50));
+    scoretext->SetColour(Color((float*)&Colors::Yellow));
+
     if (States == GamePlay)
     {
         m_GameObjects2D.clear();
         test->SetText(std::to_string(timer));
+        scoretext->SetText(std::to_string(score));
+        m_GameObjects2D.push_back(scoretext);
     }
     m_GameObjects2D.push_back(test);
 }

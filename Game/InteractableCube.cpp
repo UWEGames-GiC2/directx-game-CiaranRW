@@ -38,6 +38,7 @@ void InteractableCube::Tick(GameData* _GD)
 		bool foundProjectile = false;
 		for (size_t i = 0; i < projectiles.size(); i++)
 		{
+			CanShoot = false;
 			if (!projectiles[i]->IsActive())
 			{
 				//printf("Found usable projectile\n");
@@ -53,7 +54,6 @@ void InteractableCube::Tick(GameData* _GD)
 				projectiles[i]->SetAcceleration(forwardMove * 100.0f);
 				break;
 			}
-			CanShoot = false;
 		}
 	}
 

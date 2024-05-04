@@ -19,7 +19,8 @@ public:
 
 
 protected:
-	float gravity = 800.0;
+	float gravity = 800;
+	float jump = 300000;
 	float speed = 0;
 	bool sprint = false;
 

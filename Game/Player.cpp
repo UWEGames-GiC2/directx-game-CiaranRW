@@ -109,7 +109,7 @@ void Player::Tick(GameData* _GD)
 	{
 		if (_GD->m_can_jump)
 		{
-			m_acc.y += 2500.0f;
+			m_acc.y += jump * _GD->m_dt;
 		}
 	}
 
